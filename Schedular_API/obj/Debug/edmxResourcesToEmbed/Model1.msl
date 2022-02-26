@@ -1,0 +1,1863 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sbn_cwDBModelStoreContainer" CdmEntityContainer="sbn_cwDBEntities">
+    <EntitySetMapping Name="Alerts">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.Alert">
+        <MappingFragment StoreEntitySet="Alert">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AlertRuleDataPointId" ColumnName="AlertRuleDataPointId" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjetFkId" ColumnName="ObjetFkId" />
+          <ScalarProperty Name="ObjetId" ColumnName="ObjetId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="FromDateTime" ColumnName="FromDateTime" />
+          <ScalarProperty Name="ToDateTime" ColumnName="ToDateTime" />
+          <ScalarProperty Name="Severity" ColumnName="Severity" />
+          <ScalarProperty Name="AlertValue" ColumnName="AlertValue" />
+          <ScalarProperty Name="ReferenceValue" ColumnName="ReferenceValue" />
+          <ScalarProperty Name="LastRecord" ColumnName="LastRecord" />
+          <ScalarProperty Name="AlertCondition" ColumnName="AlertCondition" />
+          <ScalarProperty Name="IsSMS" ColumnName="IsSMS" />
+          <ScalarProperty Name="IsEmail" ColumnName="IsEmail" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="ObjectNo" ColumnName="ObjectNo" />
+          <ScalarProperty Name="Resolved" ColumnName="Resolved" />
+          <ScalarProperty Name="RealTimeAlert" ColumnName="RealTimeAlert" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="LastEmailDateTime" ColumnName="LastEmailDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlertDatas">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.AlertData">
+        <MappingFragment StoreEntitySet="AlertData">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="ReadingValue" ColumnName="ReadingValue" />
+          <ScalarProperty Name="BaselineValue" ColumnName="BaselineValue" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Severity" ColumnName="Severity" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="IsEmail" ColumnName="IsEmail" />
+          <ScalarProperty Name="IsSMS" ColumnName="IsSMS" />
+          <ScalarProperty Name="IsProcess" ColumnName="IsProcess" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="IsAlertProcess" ColumnName="IsAlertProcess" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="AlertRoleValue" ColumnName="AlertRoleValue" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlertMasters">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.AlertMaster">
+        <MappingFragment StoreEntitySet="AlertMaster">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ModuleFkId" ColumnName="ModuleFkId" />
+          <ScalarProperty Name="AlertRuleSetupFkId" ColumnName="AlertRuleSetupFkId" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlertProccessingTracks">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.AlertProccessingTrack">
+        <MappingFragment StoreEntitySet="AlertProccessingTrack">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="LastProcessDate" ColumnName="LastProcessDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlertRuleDataPoints">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.AlertRuleDataPoint">
+        <MappingFragment StoreEntitySet="AlertRuleDataPoint">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AlertRuleSetupId" ColumnName="AlertRuleSetupId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="ObjectNo" ColumnName="ObjectNo" />
+          <ScalarProperty Name="FirstOccurance" ColumnName="FirstOccurance" />
+          <ScalarProperty Name="LastOccurance" ColumnName="LastOccurance" />
+          <ScalarProperty Name="OccuranceCount" ColumnName="OccuranceCount" />
+          <ScalarProperty Name="SameDataOccuranceValue" ColumnName="SameDataOccuranceValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlertRuleSetups">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.AlertRuleSetup">
+        <MappingFragment StoreEntitySet="AlertRuleSetup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectDisplayName" ColumnName="ObjectDisplayName" />
+          <ScalarProperty Name="DataFieldDisplayName" ColumnName="DataFieldDisplayName" />
+          <ScalarProperty Name="Severity" ColumnName="Severity" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="ReferenceValue" ColumnName="ReferenceValue" />
+          <ScalarProperty Name="DateRange" ColumnName="DateRange" />
+          <ScalarProperty Name="AveragingWindow" ColumnName="AveragingWindow" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="IsEmail" ColumnName="IsEmail" />
+          <ScalarProperty Name="IsSMS" ColumnName="IsSMS" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="ValueComingFromFlag" ColumnName="ValueComingFromFlag" />
+          <ScalarProperty Name="CustomValue" ColumnName="CustomValue" />
+          <ScalarProperty Name="AlertText" ColumnName="AlertText" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="FixedRulebyBCA" ColumnName="FixedRulebyBCA" />
+          <ScalarProperty Name="DataComingFromReadingOrTempReading" ColumnName="DataComingFromReadingOrTempReading" />
+          <ScalarProperty Name="SummaryNotification" ColumnName="SummaryNotification" />
+          <ScalarProperty Name="AlertType" ColumnName="AlertType" />
+          <ScalarProperty Name="WeekDays" ColumnName="WeekDays" />
+          <ScalarProperty Name="AlertRuleTypeId" ColumnName="AlertRuleTypeId" />
+          <ScalarProperty Name="Interval" ColumnName="Interval" />
+          <ScalarProperty Name="Occurance" ColumnName="Occurance" />
+          <ScalarProperty Name="GreenMarkInterval" ColumnName="GreenMarkInterval" />
+          <ScalarProperty Name="GreenMarkCondition" ColumnName="GreenMarkCondition" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="SendTo" ColumnName="SendTo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlertRuleTypes">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.AlertRuleType">
+        <MappingFragment StoreEntitySet="AlertRuleType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlertSuppresses">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.AlertSuppress">
+        <MappingFragment StoreEntitySet="AlertSuppress">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="FromDateTime" ColumnName="FromDateTime" />
+          <ScalarProperty Name="ToDatetime" ColumnName="ToDatetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BacnetObjectDatafieldMappings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BacnetObjectDatafieldMapping">
+        <MappingFragment StoreEntitySet="BacnetObjectDatafieldMapping">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DatafieldFkId" ColumnName="DatafieldFkId" />
+          <ScalarProperty Name="DatafieldId" ColumnName="DatafieldId" />
+          <ScalarProperty Name="BacnetOjectId" ColumnName="BacnetOjectId" />
+          <ScalarProperty Name="BacnetDatafiledId" ColumnName="BacnetDatafiledId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Baselines">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.Baseline">
+        <MappingFragment StoreEntitySet="Baseline">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="WeekDay" ColumnName="WeekDay" />
+          <ScalarProperty Name="WeekDayInt" ColumnName="WeekDayInt" />
+          <ScalarProperty Name="TimeSlat" ColumnName="TimeSlat" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BaselineCommons">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BaselineCommon">
+        <MappingFragment StoreEntitySet="BaselineCommon">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectDisplayName" ColumnName="ObjectDisplayName" />
+          <ScalarProperty Name="DataFieldDisplayName" ColumnName="DataFieldDisplayName" />
+          <ScalarProperty Name="BaselineType" ColumnName="BaselineType" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="AlertType" ColumnName="AlertType" />
+          <ScalarProperty Name="WeekDays" ColumnName="WeekDays" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BaselineCommonDataPoints">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BaselineCommonDataPoint">
+        <MappingFragment StoreEntitySet="BaselineCommonDataPoint">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BaselineCommonId" ColumnName="BaselineCommonId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="ObjectNo" ColumnName="ObjectNo" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BaselineLearnedDates">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BaselineLearnedDate">
+        <MappingFragment StoreEntitySet="BaselineLearnedDate">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BCLId" ColumnName="BCLId" />
+          <ScalarProperty Name="BaselineDate" ColumnName="BaselineDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BaselineMasters">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BaselineMaster">
+        <MappingFragment StoreEntitySet="BaselineMaster">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ModuleFkId" ColumnName="ModuleFkId" />
+          <ScalarProperty Name="BaselineFkId" ColumnName="BaselineFkId" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillFiles">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BillFile">
+        <MappingFragment StoreEntitySet="BillFile">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+          <ScalarProperty Name="Module" ColumnName="Module" />
+          <ScalarProperty Name="MeterName" ColumnName="MeterName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillMappings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BillMapping">
+        <MappingFragment StoreEntitySet="BillMapping">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="BillType" ColumnName="BillType" />
+          <ScalarProperty Name="BillParamFkId" ColumnName="BillParamFkId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Keys" ColumnName="Keys" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="SplitBy" ColumnName="SplitBy" />
+          <ScalarProperty Name="SplitPosition" ColumnName="SplitPosition" />
+          <ScalarProperty Name="RemoveString" ColumnName="RemoveString" />
+          <ScalarProperty Name="ReturnFormat" ColumnName="ReturnFormat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillParameters">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BillParameter">
+        <MappingFragment StoreEntitySet="BillParameters">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BMSReportFileProgresses">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BMSReportFileProgress">
+        <MappingFragment StoreEntitySet="BMSReportFileProgress">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserFkId" ColumnName="UserFkId" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="ExcelFileName" ColumnName="ExcelFileName" />
+          <ScalarProperty Name="ProcessedJSONFileName" ColumnName="ProcessedJSONFileName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Buildings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.Building">
+        <MappingFragment StoreEntitySet="Building">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FakeName" ColumnName="FakeName" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="GFA" ColumnName="GFA" />
+          <ScalarProperty Name="EUI" ColumnName="EUI" />
+          <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+          <ScalarProperty Name="GreenMarkRating" ColumnName="GreenMarkRating" />
+          <ScalarProperty Name="GreenMarkExpiry" ColumnName="GreenMarkExpiry" />
+          <ScalarProperty Name="Award" ColumnName="Award" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="AirconditionedArea" ColumnName="AirconditionedArea" />
+          <ScalarProperty Name="Established" ColumnName="Established" />
+          <ScalarProperty Name="WorkingPeriodStart" ColumnName="WorkingPeriodStart" />
+          <ScalarProperty Name="WorkingPeriodEnd" ColumnName="WorkingPeriodEnd" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Lattitude" ColumnName="Lattitude" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="WorkingPeriod" ColumnName="WorkingPeriod" />
+          <ScalarProperty Name="Tariff" ColumnName="Tariff" />
+          <ScalarProperty Name="NotificationProcess" ColumnName="NotificationProcess" />
+          <ScalarProperty Name="ChillerPlantBitmap" ColumnName="ChillerPlantBitmap" />
+          <ScalarProperty Name="ChwFlowDesigned" ColumnName="ChwFlowDesigned" />
+          <ScalarProperty Name="CwFlowDesigned" ColumnName="CwFlowDesigned" />
+          <ScalarProperty Name="BaselineType" ColumnName="BaselineType" />
+          <ScalarProperty Name="OperatingFromWeekDay" ColumnName="OperatingFromWeekDay" />
+          <ScalarProperty Name="OperatingToWeekDay" ColumnName="OperatingToWeekDay" />
+          <ScalarProperty Name="SecretKey" ColumnName="SecretKey" />
+          <ScalarProperty Name="BaselineRange" ColumnName="BaselineRange" />
+          <ScalarProperty Name="IsTemplate" ColumnName="IsTemplate" />
+          <ScalarProperty Name="InactiveDate" ColumnName="InactiveDate" />
+          <ScalarProperty Name="Baseline" ColumnName="Baseline" />
+          <ScalarProperty Name="IsCompuationRunning" ColumnName="IsCompuationRunning" />
+          <ScalarProperty Name="Currency" ColumnName="Currency" />
+          <ScalarProperty Name="PIC" ColumnName="PIC" />
+          <ScalarProperty Name="UpdatedDateForReportTable" ColumnName="UpdatedDateForReportTable" />
+          <ScalarProperty Name="IsReportTableComputationRunning" ColumnName="IsReportTableComputationRunning" />
+          <ScalarProperty Name="BCA_WorkingPeriod" ColumnName="BCA_WorkingPeriod" />
+          <ScalarProperty Name="BCA_WeekDays" ColumnName="BCA_WeekDays" />
+          <ScalarProperty Name="CountryFkId" ColumnName="CountryFkId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuildingDataPoints">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BuildingDataPoint">
+        <MappingFragment StoreEntitySet="BuildingDataPoint">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="ObjectNo" ColumnName="ObjectNo" />
+          <ScalarProperty Name="ObjectDisplayName" ColumnName="ObjectDisplayName" />
+          <ScalarProperty Name="DataFieldDisplayName" ColumnName="DataFieldDisplayName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsComputed" ColumnName="IsComputed" />
+          <ScalarProperty Name="LastDataReceived" ColumnName="LastDataReceived" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuildingGFAs">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BuildingGFA">
+        <MappingFragment StoreEntitySet="BuildingGFA">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="FromTimestamp" ColumnName="FromTimestamp" />
+          <ScalarProperty Name="ToTimestamp" ColumnName="ToTimestamp" />
+          <ScalarProperty Name="GFA" ColumnName="GFA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuildingHeadersMappings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BuildingHeadersMapping">
+        <MappingFragment StoreEntitySet="BuildingHeadersMapping">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingObjectMappingFkId" ColumnName="BuildingObjectMappingFkId" />
+          <ScalarProperty Name="TabName" ColumnName="TabName" />
+          <ScalarProperty Name="ObjectNo" ColumnName="ObjectNo" />
+          <ScalarProperty Name="ObjectName" ColumnName="ObjectName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuildingObjects">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BuildingObject">
+        <MappingFragment StoreEntitySet="BuildingObject">
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="ObjectQty" ColumnName="ObjectQty" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuildingObjectDatas">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BuildingObjectData">
+        <MappingFragment StoreEntitySet="BuildingObjectData">
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="ObjectNo" ColumnName="ObjectNo" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="RawDataFieldNumber" ColumnName="RawDataFieldNumber" />
+          <ScalarProperty Name="ComputedDataFieldNumber" ColumnName="ComputedDataFieldNumber" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuildingObjectMappings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BuildingObjectMapping">
+        <MappingFragment StoreEntitySet="BuildingObjectMapping">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="CHWPTemperatureObjectNo" ColumnName="CHWPTemperatureObjectNo" />
+          <ScalarProperty Name="CWPTemperatureObjectNo" ColumnName="CWPTemperatureObjectNo" />
+          <ScalarProperty Name="CHWPPowerObjectNo" ColumnName="CHWPPowerObjectNo" />
+          <ScalarProperty Name="CHPowerObjectNo" ColumnName="CHPowerObjectNo" />
+          <ScalarProperty Name="CWPPowerObjectNo" ColumnName="CWPPowerObjectNo" />
+          <ScalarProperty Name="CTPowerObjectNo" ColumnName="CTPowerObjectNo" />
+          <ScalarProperty Name="CHWPFlowrateObjectNo" ColumnName="CHWPFlowrateObjectNo" />
+          <ScalarProperty Name="CWPFlowrateObjectNo" ColumnName="CWPFlowrateObjectNo" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuildingStaticInformations">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BuildingStaticInformation">
+        <MappingFragment StoreEntitySet="BuildingStaticInformation">
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="DateofLastEnergyAuditSubmission" ColumnName="DateofLastEnergyAuditSubmission" />
+          <ScalarProperty Name="NumberofGuestRooms" ColumnName="NumberofGuestRooms" />
+          <ScalarProperty Name="StarginDate" ColumnName="StarginDate" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="OwnerName" ColumnName="OwnerName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuildingTypes">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BuildingType">
+        <MappingFragment StoreEntitySet="BuildingType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuildingUsers">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BuildingUser">
+        <MappingFragment StoreEntitySet="BuildingUser">
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="UserFkId" ColumnName="UserFkId" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuildingValueLimits">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BuildingValueLimit">
+        <MappingFragment StoreEntitySet="BuildingValueLimits">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+          <ScalarProperty Name="LowCap" ColumnName="LowCap" />
+          <ScalarProperty Name="HighCap" ColumnName="HighCap" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Computations">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.Computation">
+        <MappingFragment StoreEntitySet="Computation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComputedInfoes">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ComputedInfo">
+        <MappingFragment StoreEntitySet="ComputedInfo">
+          <ScalarProperty Name="AutoId" ColumnName="AutoId" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectName" ColumnName="ObjectName" />
+          <ScalarProperty Name="Module" ColumnName="Module" />
+          <ScalarProperty Name="ValueType" ColumnName="ValueType" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Flag" ColumnName="Flag" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CWAlerts">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.CWAlert">
+        <MappingFragment StoreEntitySet="CWAlert">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CWAlertRuleSetupFkId" ColumnName="CWAlertRuleSetupFkId" />
+          <ScalarProperty Name="CWBuildingDataPointFkId" ColumnName="CWBuildingDataPointFkId" />
+          <ScalarProperty Name="FromDateTime" ColumnName="FromDateTime" />
+          <ScalarProperty Name="ToDateTime" ColumnName="ToDateTime" />
+          <ScalarProperty Name="Severity" ColumnName="Severity" />
+          <ScalarProperty Name="AlertValue" ColumnName="AlertValue" />
+          <ScalarProperty Name="ReferenceValue" ColumnName="ReferenceValue" />
+          <ScalarProperty Name="LastRecord" ColumnName="LastRecord" />
+          <ScalarProperty Name="AlertCondition" ColumnName="AlertCondition" />
+          <ScalarProperty Name="IsSMS" ColumnName="IsSMS" />
+          <ScalarProperty Name="IsEmail" ColumnName="IsEmail" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Resolved" ColumnName="Resolved" />
+          <ScalarProperty Name="RealTimeAlert" ColumnName="RealTimeAlert" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="LastEmailDateTime" ColumnName="LastEmailDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CWAlertRuleSetups">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.CWAlertRuleSetup">
+        <MappingFragment StoreEntitySet="CWAlertRuleSetup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CWBuildingDataPointFkId" ColumnName="CWBuildingDataPointFkId" />
+          <ScalarProperty Name="Severity" ColumnName="Severity" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="ReferenceValue" ColumnName="ReferenceValue" />
+          <ScalarProperty Name="DateRange" ColumnName="DateRange" />
+          <ScalarProperty Name="AveragingWindow" ColumnName="AveragingWindow" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="IsEmail" ColumnName="IsEmail" />
+          <ScalarProperty Name="IsSMS" ColumnName="IsSMS" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="ValueComingFromFlag" ColumnName="ValueComingFromFlag" />
+          <ScalarProperty Name="CustomValue" ColumnName="CustomValue" />
+          <ScalarProperty Name="AlertText" ColumnName="AlertText" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="FixedRulebyBCA" ColumnName="FixedRulebyBCA" />
+          <ScalarProperty Name="DataComingFromReadingOrTempReading" ColumnName="DataComingFromReadingOrTempReading" />
+          <ScalarProperty Name="SummaryNotification" ColumnName="SummaryNotification" />
+          <ScalarProperty Name="AlertType" ColumnName="AlertType" />
+          <ScalarProperty Name="WeekDays" ColumnName="WeekDays" />
+          <ScalarProperty Name="AlertRuleTypeId" ColumnName="AlertRuleTypeId" />
+          <ScalarProperty Name="Interval" ColumnName="Interval" />
+          <ScalarProperty Name="Occurance" ColumnName="Occurance" />
+          <ScalarProperty Name="GreenMarkInterval" ColumnName="GreenMarkInterval" />
+          <ScalarProperty Name="GreenMarkCondition" ColumnName="GreenMarkCondition" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="SendTo" ColumnName="SendTo" />
+          <ScalarProperty Name="FirstOccurance" ColumnName="FirstOccurance" />
+          <ScalarProperty Name="LastOccurance" ColumnName="LastOccurance" />
+          <ScalarProperty Name="OccuranceCount" ColumnName="OccuranceCount" />
+          <ScalarProperty Name="SameDataOccuranceValue" ColumnName="SameDataOccuranceValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CWBaselineCommons">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.CWBaselineCommon">
+        <MappingFragment StoreEntitySet="CWBaselineCommon">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CWBuildingDataPointFkId" ColumnName="CWBuildingDataPointFkId" />
+          <ScalarProperty Name="BaselineType" ColumnName="BaselineType" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="AlertType" ColumnName="AlertType" />
+          <ScalarProperty Name="WeekDays" ColumnName="WeekDays" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="SendTo" ColumnName="SendTo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CWBuildingDataPoints">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.CWBuildingDataPoint">
+        <MappingFragment StoreEntitySet="CWBuildingDataPoint">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Sensor" ColumnName="Sensor" />
+          <ScalarProperty Name="DeviceFkId" ColumnName="DeviceFkId" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CWElectricityBillParameters">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.CWElectricityBillParameter">
+        <MappingFragment StoreEntitySet="CWElectricityBillParameters">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="MaxDecimalPoints" ColumnName="MaxDecimalPoints" />
+          <ScalarProperty Name="ReturnFormat" ColumnName="ReturnFormat" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="TablePosition" ColumnName="TablePosition" />
+          <ScalarProperty Name="BillType" ColumnName="BillType" />
+          <ScalarProperty Name="IsExistInExpression" ColumnName="IsExistInExpression" />
+          <ScalarProperty Name="Expression" ColumnName="Expression" />
+          <ScalarProperty Name="IsComputed" ColumnName="IsComputed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CWElectricityBillReadings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.CWElectricityBillReading">
+        <MappingFragment StoreEntitySet="CWElectricityBillReading">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="CWElectricityBillParamFkId" ColumnName="CWElectricityBillParamFkId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DataFields">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.DataField">
+        <MappingFragment StoreEntitySet="DataField">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="IsRaw" ColumnName="IsRaw" />
+          <ScalarProperty Name="IsCompute" ColumnName="IsCompute" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Designeds">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.Designed">
+        <MappingFragment StoreEntitySet="Designed">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElectricityBillParameters">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ElectricityBillParameter">
+        <MappingFragment StoreEntitySet="ElectricityBillParameters">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="MaxDecimalPoints" ColumnName="MaxDecimalPoints" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="BillType" ColumnName="BillType" />
+          <ScalarProperty Name="ReturnFormat" ColumnName="ReturnFormat" />
+          <ScalarProperty Name="IsExistInExpression" ColumnName="IsExistInExpression" />
+          <ScalarProperty Name="Expression" ColumnName="Expression" />
+          <ScalarProperty Name="IsComputed" ColumnName="IsComputed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElectricityBillReadings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ElectricityBillReading">
+        <MappingFragment StoreEntitySet="ElectricityBillReading">
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="BillHeadFkId" ColumnName="BillHeadFkId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElectricityBillReadingV2">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ElectricityBillReadingV2">
+        <MappingFragment StoreEntitySet="ElectricityBillReadingV2">
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="BillHeadFkId" ColumnName="BillHeadFkId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElectricityBuildingUnits">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ElectricityBuildingUnit">
+        <MappingFragment StoreEntitySet="ElectricityBuildingUnit">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UnitNo" ColumnName="UnitNo" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElectricityMeters">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ElectricityMeter">
+        <MappingFragment StoreEntitySet="ElectricityMeter">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MeterNo" ColumnName="MeterNo" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="BuildingUnitFkId" ColumnName="BuildingUnitFkId" />
+          <ScalarProperty Name="IsBuildingMeter" ColumnName="IsBuildingMeter" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElectricityTenants">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ElectricityTenant">
+        <MappingFragment StoreEntitySet="ElectricityTenant">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TenantName" ColumnName="TenantName" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="MeterFkId" ColumnName="MeterFkId" />
+          <ScalarProperty Name="BuildingUnitFkId" ColumnName="BuildingUnitFkId" />
+          <ScalarProperty Name="TenantCategoryFkId" ColumnName="TenantCategoryFkId" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsBuildingMeter" ColumnName="IsBuildingMeter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElectricityTenantCategories">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ElectricityTenantCategory">
+        <MappingFragment StoreEntitySet="ElectricityTenantCategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CatgoryName" ColumnName="CatgoryName" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailSummaryNotifyGroups">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.EmailSummaryNotifyGroup">
+        <MappingFragment StoreEntitySet="EmailSummaryNotifyGroup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="UserGroupId" ColumnName="UserGroupId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailSummaryNotifyUsers">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.EmailSummaryNotifyUser">
+        <MappingFragment StoreEntitySet="EmailSummaryNotifyUser">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnergyBills">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.EnergyBill">
+        <MappingFragment StoreEntitySet="EnergyBill">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="ParameterId" ColumnName="ParameterId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExcelToReportDataPoints">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ExcelToReportDataPoint">
+        <MappingFragment StoreEntitySet="ExcelToReportDataPoint">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="ObjectNo" ColumnName="ObjectNo" />
+          <ScalarProperty Name="IsComputed" ColumnName="IsComputed" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExportMappings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ExportMapping">
+        <MappingFragment StoreEntitySet="ExportMapping">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="DatapointId" ColumnName="DatapointId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="ObjectNo" ColumnName="ObjectNo" />
+          <ScalarProperty Name="DeviceFkId" ColumnName="DeviceFkId" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="SensorName" ColumnName="SensorName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Expressions">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.Expression">
+        <MappingFragment StoreEntitySet="Expression">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="Expr" ColumnName="Expr" />
+          <ScalarProperty Name="IsSchematic" ColumnName="IsSchematic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FlagAlertTracks">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.FlagAlertTrack">
+        <MappingFragment StoreEntitySet="FlagAlertTrack">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+          <ScalarProperty Name="TillNowDateTime" ColumnName="TillNowDateTime" />
+          <ScalarProperty Name="TillNowHeatBalanceTotalCount" ColumnName="TillNowHeatBalanceTotalCount" />
+          <ScalarProperty Name="TillNowHeatBalanceInRangeCount" ColumnName="TillNowHeatBalanceInRangeCount" />
+          <ScalarProperty Name="TillNowHeatBalanceInRangePercentage" ColumnName="TillNowHeatBalanceInRangePercentage" />
+          <ScalarProperty Name="TillNowHighestBaseline" ColumnName="TillNowHighestBaseline" />
+          <ScalarProperty Name="TillNowEfficiencyTotalCount" ColumnName="TillNowEfficiencyTotalCount" />
+          <ScalarProperty Name="TillNowEfficiencySum" ColumnName="TillNowEfficiencySum" />
+          <ScalarProperty Name="TillNowSystemEfficiencyAverage" ColumnName="TillNowSystemEfficiencyAverage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GasBillParameters">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.GasBillParameter">
+        <MappingFragment StoreEntitySet="GasBillParameters">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="MaxDecimalPoints" ColumnName="MaxDecimalPoints" />
+          <ScalarProperty Name="ReturnFormat" ColumnName="ReturnFormat" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="TablePosition" ColumnName="TablePosition" />
+          <ScalarProperty Name="BillType" ColumnName="BillType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GasBillReadings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.GasBillReading">
+        <MappingFragment StoreEntitySet="GasBillReading">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="GasBillParamFkId" ColumnName="GasBillParamFkId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GasBillReadingV2">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.GasBillReadingV2">
+        <MappingFragment StoreEntitySet="GasBillReadingV2">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="GasBillParamFkId" ColumnName="GasBillParamFkId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.Group">
+        <MappingFragment StoreEntitySet="Group">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="ExpirationTime" ColumnName="ExpirationTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HealthyRangeSetups">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.HealthyRangeSetup">
+        <MappingFragment StoreEntitySet="HealthyRangeSetup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="DeviceFkId" ColumnName="DeviceFkId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MinValue" ColumnName="MinValue" />
+          <ScalarProperty Name="MaxValue" ColumnName="MaxValue" />
+          <ScalarProperty Name="interval" ColumnName="interval" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="yAxisMin" ColumnName="yAxisMin" />
+          <ScalarProperty Name="yAxisMax" ColumnName="yAxisMax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MenuAuthentications">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.MenuAuthentication">
+        <MappingFragment StoreEntitySet="MenuAuthentication">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+          <ScalarProperty Name="IsAuthorized" ColumnName="IsAuthorized" />
+          <ScalarProperty Name="PermissionRole" ColumnName="PermissionRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModuleConfigurations">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ModuleConfiguration">
+        <MappingFragment StoreEntitySet="ModuleConfiguration">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ModuleFkId" ColumnName="ModuleFkId" />
+          <ScalarProperty Name="IsAlert" ColumnName="IsAlert" />
+          <ScalarProperty Name="IsBaseline" ColumnName="IsBaseline" />
+          <ScalarProperty Name="IsReport" ColumnName="IsReport" />
+          <ScalarProperty Name="IsAnalytics" ColumnName="IsAnalytics" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotifyUsers">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.NotifyUser">
+        <MappingFragment StoreEntitySet="NotifyUser">
+          <ScalarProperty Name="SL" ColumnName="SL" />
+          <ScalarProperty Name="AlertRuleSetupId" ColumnName="AlertRuleSetupId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotifyUserGroups">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.NotifyUserGroup">
+        <MappingFragment StoreEntitySet="NotifyUserGroup">
+          <ScalarProperty Name="SL" ColumnName="SL" />
+          <ScalarProperty Name="AlertRuleSetupId" ColumnName="AlertRuleSetupId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Objects">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.Object">
+        <MappingFragment StoreEntitySet="Object">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+          <ScalarProperty Name="IsRaw" ColumnName="IsRaw" />
+          <ScalarProperty Name="IsCompute" ColumnName="IsCompute" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ObjectDatas">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ObjectData">
+        <MappingFragment StoreEntitySet="ObjectData">
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PinMappings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.PinMapping">
+        <MappingFragment StoreEntitySet="PinMapping">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserFkId" ColumnName="UserFkId" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="ObjectNo" ColumnName="ObjectNo" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="WeekDays" ColumnName="WeekDays" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="DecimalPoint" ColumnName="DecimalPoint" />
+          <ScalarProperty Name="YaxisText" ColumnName="YaxisText" />
+          <ScalarProperty Name="ChartTitle" ColumnName="ChartTitle" />
+          <ScalarProperty Name="IconClass" ColumnName="IconClass" />
+          <ScalarProperty Name="HighCap" ColumnName="HighCap" />
+          <ScalarProperty Name="LowCap" ColumnName="LowCap" />
+          <ScalarProperty Name="XaxisText" ColumnName="XaxisText" />
+          <ScalarProperty Name="ChartType" ColumnName="ChartType" />
+          <ScalarProperty Name="Baseline" ColumnName="Baseline" />
+          <ScalarProperty Name="ObjectFkIdList" ColumnName="ObjectFkIdList" />
+          <ScalarProperty Name="DataFieldFkIdList" ColumnName="DataFieldFkIdList" />
+          <ScalarProperty Name="DeviceFkId" ColumnName="DeviceFkId" />
+          <ScalarProperty Name="ReadingTypeName" ColumnName="ReadingTypeName" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="SizeX" ColumnName="SizeX" />
+          <ScalarProperty Name="SizeY" ColumnName="SizeY" />
+          <ScalarProperty Name="Col" ColumnName="Col" />
+          <ScalarProperty Name="Row" ColumnName="Row" />
+          <ScalarProperty Name="ChartUIId" ColumnName="ChartUIId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PinToDashboards">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.PinToDashboard">
+        <MappingFragment StoreEntitySet="PinToDashboard">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserFkId" ColumnName="UserFkId" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="ChartType" ColumnName="ChartType" />
+          <ScalarProperty Name="Baseline" ColumnName="Baseline" />
+          <ScalarProperty Name="DeviceFkId" ColumnName="DeviceFkId" />
+          <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+          <ScalarProperty Name="ReadingTypeName" ColumnName="ReadingTypeName" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="Datapoint" ColumnName="Datapoint" />
+          <ScalarProperty Name="SeriesName" ColumnName="SeriesName" />
+          <ScalarProperty Name="ChartTitle" ColumnName="ChartTitle" />
+          <ScalarProperty Name="IconClass" ColumnName="IconClass" />
+          <ScalarProperty Name="xAxisText" ColumnName="xAxisText" />
+          <ScalarProperty Name="yAxisText" ColumnName="yAxisText" />
+          <ScalarProperty Name="xAxisUnit" ColumnName="xAxisUnit" />
+          <ScalarProperty Name="yAxisUnit" ColumnName="yAxisUnit" />
+          <ScalarProperty Name="xAxisDecimalPoints" ColumnName="xAxisDecimalPoints" />
+          <ScalarProperty Name="yAxisDecimalPoints" ColumnName="yAxisDecimalPoints" />
+          <ScalarProperty Name="HighCaps" ColumnName="HighCaps" />
+          <ScalarProperty Name="LowCaps" ColumnName="LowCaps" />
+          <ScalarProperty Name="SizeX" ColumnName="SizeX" />
+          <ScalarProperty Name="SizeY" ColumnName="SizeY" />
+          <ScalarProperty Name="Col" ColumnName="Col" />
+          <ScalarProperty Name="Row" ColumnName="Row" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ratings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.Rating">
+        <MappingFragment StoreEntitySet="Rating">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Readings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.Reading">
+        <MappingFragment StoreEntitySet="Reading">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="IsAlertProcess" ColumnName="IsAlertProcess" />
+          <ScalarProperty Name="UtcTimestamp" ColumnName="UtcTimestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportTables">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ReportTable">
+        <MappingFragment StoreEntitySet="ReportTables">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="ParameterName" ColumnName="ParameterName" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ParamterDisplayName" ColumnName="ParamterDisplayName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UserFkId" ColumnName="UserFkId" />
+          <ScalarProperty Name="ReportType" ColumnName="ReportType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleBuildingMappings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.RoleBuildingMapping">
+        <MappingFragment StoreEntitySet="RoleBuildingMapping">
+          <ScalarProperty Name="RoleFkId" ColumnName="RoleFkId" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="Rolename" ColumnName="Rolename" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SchematicReadings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.SchematicReading">
+        <MappingFragment StoreEntitySet="SchematicReading">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="Reading" ColumnName="Reading" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schemes">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.Scheme">
+        <MappingFragment StoreEntitySet="Scheme">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SensorDevices">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.SensorDevice">
+        <MappingFragment StoreEntitySet="SensorDevice">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="MacAddress" ColumnName="MacAddress" />
+          <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsComputed" ColumnName="IsComputed" />
+          <ScalarProperty Name="IsSmart" ColumnName="IsSmart" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SensorSyncTables">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.SensorSyncTable">
+        <MappingFragment StoreEntitySet="SensorSyncTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CWBuildingDataPointFkId" ColumnName="CWBuildingDataPointFkId" />
+          <ScalarProperty Name="Sensor" ColumnName="Sensor" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempRawDatas">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.TempRawData">
+        <MappingFragment StoreEntitySet="TempRawData">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ChilledWaterHeaderSupplyFlow" ColumnName="ChilledWaterHeaderSupplyFlow" />
+          <ScalarProperty Name="ChilledWaterHeaderReturnTemperature" ColumnName="ChilledWaterHeaderReturnTemperature" />
+          <ScalarProperty Name="ChilledWaterHeaderSupplyTemperature" ColumnName="ChilledWaterHeaderSupplyTemperature" />
+          <ScalarProperty Name="CondenserHeaderSupplyFlow" ColumnName="CondenserHeaderSupplyFlow" />
+          <ScalarProperty Name="CondenserHeaderReturnTemperature" ColumnName="CondenserHeaderReturnTemperature" />
+          <ScalarProperty Name="CondenserHeaderSupplyTemperature" ColumnName="CondenserHeaderSupplyTemperature" />
+          <ScalarProperty Name="ChillerPower1" ColumnName="ChillerPower1" />
+          <ScalarProperty Name="ChillerPower2" ColumnName="ChillerPower2" />
+          <ScalarProperty Name="ChillerPower3" ColumnName="ChillerPower3" />
+          <ScalarProperty Name="ChillerPower4" ColumnName="ChillerPower4" />
+          <ScalarProperty Name="ChillerPower5" ColumnName="ChillerPower5" />
+          <ScalarProperty Name="CondenserPumpPower1" ColumnName="CondenserPumpPower1" />
+          <ScalarProperty Name="CondenserPumpPower2" ColumnName="CondenserPumpPower2" />
+          <ScalarProperty Name="CondenserPumpPower3" ColumnName="CondenserPumpPower3" />
+          <ScalarProperty Name="CondenserPumpPower4" ColumnName="CondenserPumpPower4" />
+          <ScalarProperty Name="CondenserPumpPower5" ColumnName="CondenserPumpPower5" />
+          <ScalarProperty Name="CoolingTowerPower1" ColumnName="CoolingTowerPower1" />
+          <ScalarProperty Name="CoolingTowerPower2" ColumnName="CoolingTowerPower2" />
+          <ScalarProperty Name="CoolingTowerPower3" ColumnName="CoolingTowerPower3" />
+          <ScalarProperty Name="CoolingTowerPower4" ColumnName="CoolingTowerPower4" />
+          <ScalarProperty Name="ChillerWaterPumpPower1" ColumnName="ChillerWaterPumpPower1" />
+          <ScalarProperty Name="ChillerWaterPumpPower2" ColumnName="ChillerWaterPumpPower2" />
+          <ScalarProperty Name="ChillerWaterPumpPower3" ColumnName="ChillerWaterPumpPower3" />
+          <ScalarProperty Name="ChillerWaterPumpPower4" ColumnName="ChillerWaterPumpPower4" />
+          <ScalarProperty Name="ChillerWaterPumpPower5" ColumnName="ChillerWaterPumpPower5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempReadings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.TempReading">
+        <MappingFragment StoreEntitySet="TempReading">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="ObjectNo" ColumnName="ObjectNo" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="ExpressionColumn" ColumnName="ExpressionColumn" />
+          <ScalarProperty Name="IsProcess" ColumnName="IsProcess" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Computed" ColumnName="Computed" />
+          <ScalarProperty Name="UtcTimestamp" ColumnName="UtcTimestamp" />
+          <ScalarProperty Name="IsAlertProcess" ColumnName="IsAlertProcess" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempReading_Temp">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.TempReading_Temp">
+        <MappingFragment StoreEntitySet="TempReading_Temp">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="ObjectNo" ColumnName="ObjectNo" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="ExpressionColumn" ColumnName="ExpressionColumn" />
+          <ScalarProperty Name="IsProcess" ColumnName="IsProcess" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Computed" ColumnName="Computed" />
+          <ScalarProperty Name="UtcTimestamp" ColumnName="UtcTimestamp" />
+          <ScalarProperty Name="IsAlertProcess" ColumnName="IsAlertProcess" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Thresholds">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.Threshold">
+        <MappingFragment StoreEntitySet="Threshold">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserBuildingBookmarks">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.UserBuildingBookmark">
+        <MappingFragment StoreEntitySet="UserBuildingBookmark">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserFkId" ColumnName="UserFkId" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserBuildingMappings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.UserBuildingMapping">
+        <MappingFragment StoreEntitySet="UserBuildingMapping">
+          <ScalarProperty Name="UserFkId" ColumnName="UserFkId" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserGroups">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.UserGroup">
+        <MappingFragment StoreEntitySet="UserGroup">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserSessions">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.UserSession">
+        <MappingFragment StoreEntitySet="UserSession">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="Expiration" ColumnName="Expiration" />
+          <ScalarProperty Name="MultipleBrowserAllowed" ColumnName="MultipleBrowserAllowed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WaterBillParameters">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.WaterBillParameter">
+        <MappingFragment StoreEntitySet="WaterBillParameters">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="MaxDecimalPoints" ColumnName="MaxDecimalPoints" />
+          <ScalarProperty Name="ReturnFormat" ColumnName="ReturnFormat" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="TablePosition" ColumnName="TablePosition" />
+          <ScalarProperty Name="BillType" ColumnName="BillType" />
+          <ScalarProperty Name="IsExistInExpression" ColumnName="IsExistInExpression" />
+          <ScalarProperty Name="Expression" ColumnName="Expression" />
+          <ScalarProperty Name="IsComputed" ColumnName="IsComputed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WaterBillReadings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.WaterBillReading">
+        <MappingFragment StoreEntitySet="WaterBillReading">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="WaterBillParamFkId" ColumnName="WaterBillParamFkId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WaterBillReadingV2">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.WaterBillReadingV2">
+        <MappingFragment StoreEntitySet="WaterBillReadingV2">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="WaterBillParamFkId" ColumnName="WaterBillParamFkId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuildingToModules">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.BuildingToModule">
+        <MappingFragment StoreEntitySet="BuildingToModule">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="ModuleFkId" ColumnName="ModuleFkId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientGroups">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ClientGroup">
+        <MappingFragment StoreEntitySet="ClientGroup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientGroupName" ColumnName="ClientGroupName" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClientGroupToBuildings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ClientGroupToBuilding">
+        <MappingFragment StoreEntitySet="ClientGroupToBuilding">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientGroupFkId" ColumnName="ClientGroupFkId" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="MenuDisplayName" ColumnName="MenuDisplayName" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="IconClass" ColumnName="IconClass" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MenuToTabs">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.MenuToTab">
+        <MappingFragment StoreEntitySet="MenuToTab">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MenuFkId" ColumnName="MenuFkId" />
+          <ScalarProperty Name="TabFkId" ColumnName="TabFkId" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modules">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.Module">
+        <MappingFragment StoreEntitySet="Module">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ModuleName" ColumnName="ModuleName" />
+          <ScalarProperty Name="ModuleDisplayName" ColumnName="ModuleDisplayName" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="IconClass" ColumnName="IconClass" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModuleToMenus">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ModuleToMenu">
+        <MappingFragment StoreEntitySet="ModuleToMenu">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ModuleFkId" ColumnName="ModuleFkId" />
+          <ScalarProperty Name="MenuFkId" ColumnName="MenuFkId" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="ExpirationTime" ColumnName="ExpirationTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RolePermissions">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.RolePermission">
+        <MappingFragment StoreEntitySet="RolePermission">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoleFkId" ColumnName="RoleFkId" />
+          <ScalarProperty Name="NavigationFkId" ColumnName="NavigationFkId" />
+          <ScalarProperty Name="TabFkId" ColumnName="TabFkId" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleToUserActions">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.RoleToUserAction">
+        <MappingFragment StoreEntitySet="RoleToUserAction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoleFkId" ColumnName="RoleFkId" />
+          <ScalarProperty Name="CanAdd" ColumnName="CanAdd" />
+          <ScalarProperty Name="CanUpdate" ColumnName="CanUpdate" />
+          <ScalarProperty Name="CanDelete" ColumnName="CanDelete" />
+          <ScalarProperty Name="CanView" ColumnName="CanView" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tabs">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.Tab">
+        <MappingFragment StoreEntitySet="Tab">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TabName" ColumnName="TabName" />
+          <ScalarProperty Name="TabDisplayName" ColumnName="TabDisplayName" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="IsLoggedIn" ColumnName="IsLoggedIn" />
+          <ScalarProperty Name="PreferredLogin" ColumnName="PreferredLogin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserActions">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.UserAction">
+        <MappingFragment StoreEntitySet="UserAction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLogs">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.UserLog">
+        <MappingFragment StoreEntitySet="UserLog">
+          <ScalarProperty Name="LogId" ColumnName="LogId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SignInOutTime" ColumnName="SignInOutTime" />
+          <ScalarProperty Name="SignType" ColumnName="SignType" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserPermissions">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.UserPermission">
+        <MappingFragment StoreEntitySet="UserPermission">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RolePermissionFkId" ColumnName="RolePermissionFkId" />
+          <ScalarProperty Name="UserFkId" ColumnName="UserFkId" />
+          <ScalarProperty Name="NavigationFkId" ColumnName="NavigationFkId" />
+          <ScalarProperty Name="TabFkId" ColumnName="TabFkId" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserToBuildings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.UserToBuilding">
+        <MappingFragment StoreEntitySet="UserToBuilding">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserFkId" ColumnName="UserFkId" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserToClientGroups">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.UserToClientGroup">
+        <MappingFragment StoreEntitySet="UserToClientGroup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserFkId" ColumnName="UserFkId" />
+          <ScalarProperty Name="ClientGroupFkId" ColumnName="ClientGroupFkId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElectricityMeterReadings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ElectricityMeterReading">
+        <MappingFragment StoreEntitySet="ElectricityMeterReading">
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="BuildingUnitFkId" ColumnName="BuildingUnitFkId" />
+          <ScalarProperty Name="MeterFkId" ColumnName="MeterFkId" />
+          <ScalarProperty Name="TenantFkId" ColumnName="TenantFkId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElectricityUnitTenantMappings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ElectricityUnitTenantMapping">
+        <MappingFragment StoreEntitySet="ElectricityUnitTenantMapping">
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="TenantFkId" ColumnName="TenantFkId" />
+          <ScalarProperty Name="BuildingUnitFkId" ColumnName="BuildingUnitFkId" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IAQReadings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.IAQReading">
+        <MappingFragment StoreEntitySet="IAQReading">
+          <ScalarProperty Name="DeviceFkId" ColumnName="DeviceFkId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="missingDataTemp7">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.missingDataTemp7">
+        <MappingFragment StoreEntitySet="missingDataTemp7">
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ObjectNo" ColumnName="ObjectNo" />
+          <ScalarProperty Name="ExpressionColumn" ColumnName="ExpressionColumn" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReadingTestV2">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ReadingTestV2">
+        <MappingFragment StoreEntitySet="ReadingTestV2">
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReadingV2">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ReadingV2">
+        <MappingFragment StoreEntitySet="ReadingV2">
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReadingV3">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ReadingV3">
+        <MappingFragment StoreEntitySet="ReadingV3">
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportTablesExpressions">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.ReportTablesExpression">
+        <MappingFragment StoreEntitySet="ReportTablesExpression">
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="ParameterName" ColumnName="ParameterName" />
+          <ScalarProperty Name="TableName" ColumnName="TableName" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Expr" ColumnName="Expr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempReading_TempV2">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.TempReading_TempV2">
+        <MappingFragment StoreEntitySet="TempReading_TempV2">
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ObjectNo" ColumnName="ObjectNo" />
+          <ScalarProperty Name="ExpressionColumn" ColumnName="ExpressionColumn" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempReadingTestV2">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.TempReadingTestV2">
+        <MappingFragment StoreEntitySet="TempReadingTestV2">
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ObjectNo" ColumnName="ObjectNo" />
+          <ScalarProperty Name="ExpressionColumn" ColumnName="ExpressionColumn" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempReadingV2">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.TempReadingV2">
+        <MappingFragment StoreEntitySet="TempReadingV2">
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ObjectNo" ColumnName="ObjectNo" />
+          <ScalarProperty Name="ExpressionColumn" ColumnName="ExpressionColumn" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempReadingV3">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.TempReadingV3">
+        <MappingFragment StoreEntitySet="TempReadingV3">
+          <ScalarProperty Name="BuildingFkId" ColumnName="BuildingFkId" />
+          <ScalarProperty Name="ObjectFkId" ColumnName="ObjectFkId" />
+          <ScalarProperty Name="DataFieldFkId" ColumnName="DataFieldFkId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ObjectNo" ColumnName="ObjectNo" />
+          <ScalarProperty Name="ExpressionColumn" ColumnName="ExpressionColumn" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="BuildingId" ColumnName="BuildingId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DataFieldId" ColumnName="DataFieldId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TokenMappings">
+      <EntityTypeMapping TypeName="sbn_cwDBModel.TokenMapping">
+        <MappingFragment StoreEntitySet="TokenMapping">
+          <ScalarProperty Name="TokenExpirationTime" ColumnName="TokenExpirationTime" />
+          <ScalarProperty Name="AccessToken" ColumnName="AccessToken" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,2111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sbn_cwDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alert">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AlertRuleDataPointId" Type="int" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="BuildingId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ObjetFkId" Type="int" Nullable="false" />
+    <Property Name="ObjetId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+    <Property Name="DataFieldId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FromDateTime" Type="datetime" Nullable="false" />
+    <Property Name="ToDateTime" Type="datetime" Nullable="false" />
+    <Property Name="Severity" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AlertValue" Type="float" Nullable="false" />
+    <Property Name="ReferenceValue" Type="float" Nullable="false" />
+    <Property Name="LastRecord" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AlertCondition" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="IsSMS" Type="bit" Nullable="false" />
+    <Property Name="IsEmail" Type="bit" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="ObjectNo" Type="int" />
+    <Property Name="Resolved" Type="bit" />
+    <Property Name="RealTimeAlert" Type="bit" />
+    <Property Name="Timestamp" Type="datetime" />
+    <Property Name="LastEmailDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AlertData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObjectFkId" Type="int" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataFieldFkId" Type="int" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReadingValue" Type="float" />
+    <Property Name="BaselineValue" Type="float" />
+    <Property Name="Timestamp" Type="datetime" />
+    <Property Name="Severity" Type="int" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="IsEmail" Type="bit" />
+    <Property Name="IsSMS" Type="bit" />
+    <Property Name="IsProcess" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+    <Property Name="IsAlertProcess" Type="bit" />
+    <Property Name="Condition" Type="int" />
+    <Property Name="AlertRoleValue" Type="float" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="AlertMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModuleFkId" Type="int" />
+    <Property Name="AlertRuleSetupFkId" Type="int" />
+    <Property Name="TableName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AlertProccessingTrack">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="ObjectFkId" Type="int" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+    <Property Name="LastProcessDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AlertRuleDataPoint">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AlertRuleSetupId" Type="int" Nullable="false" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObjectFkId" Type="int" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataFieldFkId" Type="int" />
+    <Property Name="ObjectNo" Type="int" />
+    <Property Name="FirstOccurance" Type="datetime" />
+    <Property Name="LastOccurance" Type="datetime" />
+    <Property Name="OccuranceCount" Type="int" />
+    <Property Name="SameDataOccuranceValue" Type="float" />
+  </EntityType>
+  <EntityType Name="AlertRuleSetup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObjectDisplayName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataFieldDisplayName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Severity" Type="int" />
+    <Property Name="Value" Type="float" />
+    <Property Name="Condition" Type="int" />
+    <Property Name="ReferenceValue" Type="float" />
+    <Property Name="DateRange" Type="varchar" MaxLength="250" />
+    <Property Name="AveragingWindow" Type="int" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="IsEmail" Type="bit" />
+    <Property Name="IsSMS" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+    <Property Name="ValueComingFromFlag" Type="int" />
+    <Property Name="CustomValue" Type="float" />
+    <Property Name="AlertText" Type="varchar" MaxLength="200" />
+    <Property Name="Remarks" Type="varchar" MaxLength="300" />
+    <Property Name="FixedRulebyBCA" Type="bit" />
+    <Property Name="DataComingFromReadingOrTempReading" Type="int" />
+    <Property Name="SummaryNotification" Type="int" />
+    <Property Name="AlertType" Type="nvarchar" MaxLength="50" />
+    <Property Name="WeekDays" Type="nvarchar" MaxLength="100" />
+    <Property Name="AlertRuleTypeId" Type="int" />
+    <Property Name="Interval" Type="int" />
+    <Property Name="Occurance" Type="int" />
+    <Property Name="GreenMarkInterval" Type="int" />
+    <Property Name="GreenMarkCondition" Type="int" />
+    <Property Name="Period" Type="varchar" MaxLength="50" />
+    <Property Name="SendTo" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="AlertRuleType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AlertSuppress">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="UserEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="FromDateTime" Type="datetime" />
+    <Property Name="ToDatetime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="BacnetObjectDatafieldMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectFkId" Type="int" />
+    <Property Name="ObjectId" Type="varchar" MaxLength="50" />
+    <Property Name="DatafieldFkId" Type="int" />
+    <Property Name="DatafieldId" Type="varchar" MaxLength="50" />
+    <Property Name="BacnetOjectId" Type="varchar" MaxLength="50" />
+    <Property Name="BacnetDatafiledId" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Baseline">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="BuildingId" Type="varchar" MaxLength="50" />
+    <Property Name="ObjectFkId" Type="int" />
+    <Property Name="ObjectId" Type="varchar" MaxLength="50" />
+    <Property Name="DataFieldFkId" Type="int" />
+    <Property Name="DataFieldId" Type="varchar" MaxLength="50" />
+    <Property Name="Value" Type="float" />
+    <Property Name="WeekDay" Type="varchar" MaxLength="50" />
+    <Property Name="WeekDayInt" Type="int" />
+    <Property Name="TimeSlat" Type="time" Precision="7" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BaselineCommon">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="BuildingId" Type="varchar" MaxLength="50" />
+    <Property Name="ObjectDisplayName" Type="varchar" MaxLength="50" />
+    <Property Name="DataFieldDisplayName" Type="varchar" MaxLength="50" />
+    <Property Name="BaselineType" Type="int" />
+    <Property Name="FromDate" Type="datetime" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+    <Property Name="AlertType" Type="varchar" MaxLength="50" />
+    <Property Name="WeekDays" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BaselineCommonDataPoint">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BaselineCommonId" Type="int" Nullable="false" />
+    <Property Name="ObjectId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ObjectFkId" Type="int" Nullable="false" />
+    <Property Name="DataFieldId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+    <Property Name="ObjectNo" Type="int" Nullable="false" />
+    <Property Name="Value" Type="float" />
+  </EntityType>
+  <EntityType Name="BaselineLearnedDate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BCLId" Type="int" Nullable="false" />
+    <Property Name="BaselineDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BaselineMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModuleFkId" Type="int" />
+    <Property Name="BaselineFkId" Type="int" />
+    <Property Name="TableName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BillFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="MonthYear" Type="varchar" MaxLength="20" />
+    <Property Name="Module" Type="varchar" MaxLength="50" />
+    <Property Name="MeterName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BillMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="BillType" Type="varchar" MaxLength="50" />
+    <Property Name="BillParamFkId" Type="int" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="Keys" Type="varchar" MaxLength="50" />
+    <Property Name="Value" Type="varchar" MaxLength="50" />
+    <Property Name="Position" Type="varchar" MaxLength="50" />
+    <Property Name="SplitBy" Type="varchar" MaxLength="50" />
+    <Property Name="SplitPosition" Type="varchar" MaxLength="50" />
+    <Property Name="RemoveString" Type="varchar" MaxLength="50" />
+    <Property Name="ReturnFormat" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BillParameters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingId" Type="varchar" MaxLength="50" />
+    <Property Name="Category" Type="varchar" MaxLength="100" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="DisplayName" Type="varchar" MaxLength="250" />
+    <Property Name="ColorCode" Type="varchar" MaxLength="50" />
+    <Property Name="Remarks" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="BMSReportFileProgress">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserFkId" Type="int" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="DisplayName" Type="varchar" MaxLength="250" />
+    <Property Name="ExcelFileName" Type="varchar" MaxLength="250" />
+    <Property Name="ProcessedJSONFileName" Type="varchar" MaxLength="250" />
+    <Property Name="Status" Type="varchar" MaxLength="30" />
+    <Property Name="Timestamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Building">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="FakeName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Location" Type="nvarchar(max)" />
+    <Property Name="GFA" Type="float" />
+    <Property Name="EUI" Type="float" />
+    <Property Name="ContactPerson" Type="nvarchar(max)" />
+    <Property Name="GreenMarkRating" Type="int" />
+    <Property Name="GreenMarkExpiry" Type="date" />
+    <Property Name="Award" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="int" />
+    <Property Name="AirconditionedArea" Type="float" />
+    <Property Name="Established" Type="nvarchar" MaxLength="50" />
+    <Property Name="WorkingPeriodStart" Type="datetime" />
+    <Property Name="WorkingPeriodEnd" Type="datetime" />
+    <Property Name="Status" Type="int" />
+    <Property Name="ImageLocation" Type="nvarchar(max)" />
+    <Property Name="Longitude" Type="float" />
+    <Property Name="Lattitude" Type="float" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+    <Property Name="WorkingPeriod" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tariff" Type="float" />
+    <Property Name="NotificationProcess" Type="int" />
+    <Property Name="ChillerPlantBitmap" Type="varchar" MaxLength="500" />
+    <Property Name="ChwFlowDesigned" Type="float" />
+    <Property Name="CwFlowDesigned" Type="float" />
+    <Property Name="BaselineType" Type="int" />
+    <Property Name="OperatingFromWeekDay" Type="varchar" MaxLength="50" />
+    <Property Name="OperatingToWeekDay" Type="varchar" MaxLength="50" />
+    <Property Name="SecretKey" Type="varchar" MaxLength="100" />
+    <Property Name="BaselineRange" Type="int" />
+    <Property Name="IsTemplate" Type="bit" />
+    <Property Name="InactiveDate" Type="datetime" />
+    <Property Name="Baseline" Type="float" />
+    <Property Name="IsCompuationRunning" Type="bit" />
+    <Property Name="Currency" Type="nvarchar" MaxLength="25" />
+    <Property Name="PIC" Type="nvarchar" MaxLength="250" />
+    <Property Name="UpdatedDateForReportTable" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsReportTableComputationRunning" Type="bit" />
+    <Property Name="BCA_WorkingPeriod" Type="nvarchar" MaxLength="50" />
+    <Property Name="BCA_WeekDays" Type="nvarchar" MaxLength="50" />
+    <Property Name="CountryFkId" Type="int" />
+  </EntityType>
+  <EntityType Name="BuildingDataPoint">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="ObjectFkId" Type="int" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ObjectNo" Type="int" Nullable="false" />
+    <Property Name="ObjectDisplayName" Type="varchar" MaxLength="50" />
+    <Property Name="DataFieldDisplayName" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsComputed" Type="bit" />
+    <Property Name="LastDataReceived" Type="datetime" />
+  </EntityType>
+  <EntityType Name="BuildingGFA">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="FromTimestamp" Type="datetime" />
+    <Property Name="ToTimestamp" Type="datetime" />
+    <Property Name="GFA" Type="float" />
+  </EntityType>
+  <EntityType Name="BuildingHeadersMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingObjectMappingFkId" Type="int" />
+    <Property Name="TabName" Type="varchar" MaxLength="50" />
+    <Property Name="ObjectNo" Type="int" />
+    <Property Name="ObjectName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BuildingObject">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="BuildingId" />
+      <PropertyRef Name="ObjectId" />
+    </Key>
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="ObjectFkId" Type="int" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ObjectQty" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BuildingObjectData">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="BuildingId" />
+      <PropertyRef Name="ObjectId" />
+      <PropertyRef Name="DataFieldId" />
+      <PropertyRef Name="ObjectNo" />
+    </Key>
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="ObjectFkId" Type="int" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ObjectNo" Type="int" Nullable="false" />
+    <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+    <Property Name="RawDataFieldNumber" Type="int" />
+    <Property Name="ComputedDataFieldNumber" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BuildingObjectMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingId" Type="varchar" MaxLength="50" />
+    <Property Name="ObjectId" Type="varchar" MaxLength="50" />
+    <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+    <Property Name="CHWPTemperatureObjectNo" Type="int" />
+    <Property Name="CWPTemperatureObjectNo" Type="int" />
+    <Property Name="CHWPPowerObjectNo" Type="int" />
+    <Property Name="CHPowerObjectNo" Type="int" />
+    <Property Name="CWPPowerObjectNo" Type="int" />
+    <Property Name="CTPowerObjectNo" Type="int" />
+    <Property Name="CHWPFlowrateObjectNo" Type="int" />
+    <Property Name="CWPFlowrateObjectNo" Type="int" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="Url" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="BuildingStaticInformation">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+    </Key>
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="BuildingId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PostalCode" Type="varchar" MaxLength="50" />
+    <Property Name="DateofLastEnergyAuditSubmission" Type="datetime" />
+    <Property Name="NumberofGuestRooms" Type="int" />
+    <Property Name="StarginDate" Type="datetime" />
+    <Property Name="Location" Type="varchar" MaxLength="200" />
+    <Property Name="OwnerName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BuildingType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Icon" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="BuildingUser">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="UserFkId" />
+      <PropertyRef Name="BuildingId" />
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="UserFkId" Type="int" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BuildingValueLimits">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModuleName" Type="nvarchar" MaxLength="250" />
+    <Property Name="LowCap" Type="float" />
+    <Property Name="HighCap" Type="float" />
+    <Property Name="TimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Computation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObjectFkId" Type="int" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataFieldFkId" Type="int" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Value" Type="float" />
+    <Property Name="Timestamp" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ComputedInfo">
+    <Key>
+      <PropertyRef Name="AutoId" />
+    </Key>
+    <Property Name="AutoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="BuildingId" Type="varchar" MaxLength="50" />
+    <Property Name="ObjectName" Type="varchar" MaxLength="50" />
+    <Property Name="Module" Type="varchar" MaxLength="50" />
+    <Property Name="ValueType" Type="varchar" MaxLength="50" />
+    <Property Name="Value" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Flag" Type="varchar" MaxLength="250" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="CWAlert">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CWAlertRuleSetupFkId" Type="int" />
+    <Property Name="CWBuildingDataPointFkId" Type="int" />
+    <Property Name="FromDateTime" Type="datetime" Nullable="false" />
+    <Property Name="ToDateTime" Type="datetime" Nullable="false" />
+    <Property Name="Severity" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AlertValue" Type="float" Nullable="false" />
+    <Property Name="ReferenceValue" Type="float" Nullable="false" />
+    <Property Name="LastRecord" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AlertCondition" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="IsSMS" Type="bit" Nullable="false" />
+    <Property Name="IsEmail" Type="bit" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="Resolved" Type="bit" />
+    <Property Name="RealTimeAlert" Type="bit" />
+    <Property Name="Timestamp" Type="datetime" />
+    <Property Name="LastEmailDateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CWAlertRuleSetup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CWBuildingDataPointFkId" Type="int" />
+    <Property Name="Severity" Type="int" />
+    <Property Name="Value" Type="float" />
+    <Property Name="Condition" Type="int" />
+    <Property Name="ReferenceValue" Type="float" />
+    <Property Name="DateRange" Type="varchar" MaxLength="250" />
+    <Property Name="AveragingWindow" Type="int" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="IsEmail" Type="bit" />
+    <Property Name="IsSMS" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+    <Property Name="ValueComingFromFlag" Type="int" />
+    <Property Name="CustomValue" Type="float" />
+    <Property Name="AlertText" Type="varchar" MaxLength="200" />
+    <Property Name="Remarks" Type="varchar" MaxLength="300" />
+    <Property Name="FixedRulebyBCA" Type="bit" />
+    <Property Name="DataComingFromReadingOrTempReading" Type="int" />
+    <Property Name="SummaryNotification" Type="int" />
+    <Property Name="AlertType" Type="nvarchar" MaxLength="50" />
+    <Property Name="WeekDays" Type="nvarchar" MaxLength="100" />
+    <Property Name="AlertRuleTypeId" Type="int" />
+    <Property Name="Interval" Type="int" />
+    <Property Name="Occurance" Type="int" />
+    <Property Name="GreenMarkInterval" Type="int" />
+    <Property Name="GreenMarkCondition" Type="int" />
+    <Property Name="Period" Type="varchar" MaxLength="50" />
+    <Property Name="SendTo" Type="varchar" MaxLength="500" />
+    <Property Name="FirstOccurance" Type="datetime" />
+    <Property Name="LastOccurance" Type="datetime" />
+    <Property Name="OccuranceCount" Type="int" />
+    <Property Name="SameDataOccuranceValue" Type="float" />
+  </EntityType>
+  <EntityType Name="CWBaselineCommon">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CWBuildingDataPointFkId" Type="int" />
+    <Property Name="BaselineType" Type="int" />
+    <Property Name="FromDate" Type="datetime" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+    <Property Name="AlertType" Type="varchar" MaxLength="50" />
+    <Property Name="WeekDays" Type="varchar" MaxLength="50" />
+    <Property Name="Value" Type="float" />
+    <Property Name="SendTo" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="CWBuildingDataPoint">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="Location" Type="varchar" MaxLength="50" />
+    <Property Name="Sensor" Type="varchar" MaxLength="50" />
+    <Property Name="DeviceFkId" Type="int" />
+    <Property Name="TableName" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CWElectricityBillParameters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+    <Property Name="MaxDecimalPoints" Type="int" />
+    <Property Name="ReturnFormat" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="TablePosition" Type="varchar" MaxLength="50" />
+    <Property Name="BillType" Type="varchar" MaxLength="50" />
+    <Property Name="IsExistInExpression" Type="bit" />
+    <Property Name="Expression" Type="nvarchar(max)" />
+    <Property Name="IsComputed" Type="bit" />
+  </EntityType>
+  <EntityType Name="CWElectricityBillReading">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="Timestamp" Type="datetime" />
+    <Property Name="Value" Type="varchar" MaxLength="50" />
+    <Property Name="CWElectricityBillParamFkId" Type="int" />
+  </EntityType>
+  <EntityType Name="DataField">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Unit" Type="nchar" MaxLength="10" />
+    <Property Name="IsRaw" Type="bit" />
+    <Property Name="IsCompute" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Designed">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObjectFkId" Type="int" Nullable="false" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Value" Type="float" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ElectricityBillParameters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="Category" Type="varchar" MaxLength="100" />
+    <Property Name="Name" Type="varchar" MaxLength="100" />
+    <Property Name="DisplayName" Type="varchar" MaxLength="250" />
+    <Property Name="MaxDecimalPoints" Type="varchar" MaxLength="500" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="BillType" Type="varchar" MaxLength="50" />
+    <Property Name="ReturnFormat" Type="varchar" MaxLength="50" />
+    <Property Name="IsExistInExpression" Type="bit" />
+    <Property Name="Expression" Type="nvarchar(max)" />
+    <Property Name="IsComputed" Type="bit" />
+  </EntityType>
+  <EntityType Name="ElectricityBillReading">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="BillHeadFkId" Type="int" Nullable="false" />
+    <Property Name="Value" Type="varchar" MaxLength="50" />
+    <Property Name="Timestamp" Type="datetime" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ElectricityBillReadingV2">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="BillHeadFkId" Type="int" Nullable="false" />
+    <Property Name="Value" Type="varchar" MaxLength="50" />
+    <Property Name="Timestamp" Type="datetime" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ElectricityBuildingUnit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UnitNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DisplayName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ElectricityMeter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MeterNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DisplayName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BuildingUnitFkId" Type="int" Nullable="false" />
+    <Property Name="IsBuildingMeter" Type="bit" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sbn_cwDB.dbo.ElectricityMeterReading' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ElectricityMeterReading">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="BuildingUnitFkId" />
+      <PropertyRef Name="MeterFkId" />
+      <PropertyRef Name="TenantFkId" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="BuildingUnitFkId" Type="int" Nullable="false" />
+    <Property Name="MeterFkId" Type="int" Nullable="false" />
+    <Property Name="TenantFkId" Type="int" Nullable="false" />
+    <Property Name="Value" Type="float" />
+    <Property Name="Timestamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ElectricityTenant">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenantName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DisplayName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MeterFkId" Type="int" Nullable="false" />
+    <Property Name="BuildingUnitFkId" Type="int" Nullable="false" />
+    <Property Name="TenantCategoryFkId" Type="int" Nullable="false" />
+    <Property Name="Timestamp" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsBuildingMeter" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ElectricityTenantCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CatgoryName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Timestamp" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sbn_cwDB.dbo.ElectricityUnitTenantMapping' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ElectricityUnitTenantMapping">
+    <Key>
+      <PropertyRef Name="AccountNo" />
+      <PropertyRef Name="TenantFkId" />
+      <PropertyRef Name="BuildingUnitFkId" />
+      <PropertyRef Name="StartDate" />
+      <PropertyRef Name="EndDate" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="AccountNo" Type="varchar(max)" Nullable="false" />
+    <Property Name="TenantFkId" Type="int" Nullable="false" />
+    <Property Name="BuildingUnitFkId" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="EmailSummaryNotifyGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="UserGroupId" Type="int" />
+  </EntityType>
+  <EntityType Name="EmailSummaryNotifyUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="EnergyBill">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingId" Type="varchar" MaxLength="50" />
+    <Property Name="Month" Type="date" />
+    <Property Name="ParameterId" Type="int" />
+    <Property Name="Value" Type="float" />
+  </EntityType>
+  <EntityType Name="ExcelToReportDataPoint">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingId" Type="varchar" MaxLength="50" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ObjectId" Type="varchar" MaxLength="50" />
+    <Property Name="ObjectFkId" Type="int" />
+    <Property Name="DataFieldId" Type="varchar" MaxLength="50" />
+    <Property Name="DataFieldFkId" Type="int" />
+    <Property Name="ObjectNo" Type="int" />
+    <Property Name="IsComputed" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="ExportMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="DatapointId" Type="int" />
+    <Property Name="ObjectId" Type="varchar" MaxLength="50" />
+    <Property Name="DataFieldId" Type="varchar" MaxLength="50" />
+    <Property Name="ObjectNo" Type="int" />
+    <Property Name="DeviceFkId" Type="int" />
+    <Property Name="TableName" Type="varchar" MaxLength="50" />
+    <Property Name="SensorName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Expression">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Expr" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsSchematic" Type="bit" />
+  </EntityType>
+  <EntityType Name="FlagAlertTrack">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingId" Type="varchar" MaxLength="50" />
+    <Property Name="StartDateTime" Type="datetime" />
+    <Property Name="TillNowDateTime" Type="datetime" />
+    <Property Name="TillNowHeatBalanceTotalCount" Type="int" />
+    <Property Name="TillNowHeatBalanceInRangeCount" Type="int" />
+    <Property Name="TillNowHeatBalanceInRangePercentage" Type="float" />
+    <Property Name="TillNowHighestBaseline" Type="float" />
+    <Property Name="TillNowEfficiencyTotalCount" Type="int" />
+    <Property Name="TillNowEfficiencySum" Type="float" />
+    <Property Name="TillNowSystemEfficiencyAverage" Type="float" />
+  </EntityType>
+  <EntityType Name="GasBillParameters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+    <Property Name="MaxDecimalPoints" Type="int" />
+    <Property Name="ReturnFormat" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="TablePosition" Type="varchar" MaxLength="50" />
+    <Property Name="BillType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="GasBillReading">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="Timestamp" Type="datetime" />
+    <Property Name="Value" Type="varchar" MaxLength="50" />
+    <Property Name="GasBillParamFkId" Type="int" />
+  </EntityType>
+  <EntityType Name="GasBillReadingV2">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="Timestamp" Type="datetime" />
+    <Property Name="Value" Type="varchar" MaxLength="50" />
+    <Property Name="GasBillParamFkId" Type="int" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+    <Property Name="ExpirationTime" Type="int" />
+  </EntityType>
+  <EntityType Name="HealthyRangeSetup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeviceFkId" Type="int" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MinValue" Type="float" />
+    <Property Name="MaxValue" Type="float" />
+    <Property Name="interval" Type="float" Nullable="false" />
+    <Property Name="Timestamp" Type="datetime" Nullable="false" />
+    <Property Name="yAxisMin" Type="float" />
+    <Property Name="yAxisMax" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sbn_cwDB.dbo.IAQReading' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="IAQReading">
+    <Key>
+      <PropertyRef Name="DeviceFkId" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Value" />
+      <PropertyRef Name="Unit" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="DeviceFkId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Value" Type="float" Nullable="false" />
+    <Property Name="Unit" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Timestamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MenuAuthentication">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModuleId" Type="int" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="MenuId" Type="int" />
+    <Property Name="IsAuthorized" Type="bit" />
+    <Property Name="PermissionRole" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sbn_cwDB.dbo.missingDataTemp7' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="missingDataTemp7">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="Value" />
+      <PropertyRef Name="ObjectNo" />
+      <PropertyRef Name="ExpressionColumn" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="ObjectFkId" Type="int" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+    <Property Name="Value" Type="float" Nullable="false" />
+    <Property Name="ObjectNo" Type="int" Nullable="false" />
+    <Property Name="ExpressionColumn" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Timestamp" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ModuleConfiguration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModuleFkId" Type="int" Nullable="false" />
+    <Property Name="IsAlert" Type="bit" />
+    <Property Name="IsBaseline" Type="bit" />
+    <Property Name="IsReport" Type="bit" />
+    <Property Name="IsAnalytics" Type="bit" />
+  </EntityType>
+  <EntityType Name="NotifyUser">
+    <Key>
+      <PropertyRef Name="SL" />
+    </Key>
+    <Property Name="SL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AlertRuleSetupId" Type="int" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="NotifyUserGroup">
+    <Key>
+      <PropertyRef Name="SL" />
+    </Key>
+    <Property Name="SL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AlertRuleSetupId" Type="int" />
+    <Property Name="RoleId" Type="int" />
+  </EntityType>
+  <EntityType Name="Object">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Identifier" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsRaw" Type="bit" />
+    <Property Name="IsCompute" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ObjectData">
+    <Key>
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="ObjectId" />
+      <PropertyRef Name="DataFieldId" />
+    </Key>
+    <Property Name="ObjectFkId" Type="int" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PinMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserFkId" Type="int" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="ObjectFkId" Type="int" />
+    <Property Name="DataFieldFkId" Type="int" />
+    <Property Name="ObjectNo" Type="int" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="WeekDays" Type="varchar" MaxLength="50" />
+    <Property Name="Unit" Type="varchar" MaxLength="50" />
+    <Property Name="DecimalPoint" Type="int" />
+    <Property Name="YaxisText" Type="varchar" MaxLength="50" />
+    <Property Name="ChartTitle" Type="varchar" MaxLength="50" />
+    <Property Name="IconClass" Type="varchar" MaxLength="50" />
+    <Property Name="HighCap" Type="float" />
+    <Property Name="LowCap" Type="float" />
+    <Property Name="XaxisText" Type="varchar" MaxLength="50" />
+    <Property Name="ChartType" Type="varchar" MaxLength="50" />
+    <Property Name="Baseline" Type="varchar" MaxLength="10" />
+    <Property Name="ObjectFkIdList" Type="varchar" MaxLength="50" />
+    <Property Name="DataFieldFkIdList" Type="varchar" MaxLength="50" />
+    <Property Name="DeviceFkId" Type="int" />
+    <Property Name="ReadingTypeName" Type="varchar" MaxLength="50" />
+    <Property Name="TableName" Type="varchar" MaxLength="50" />
+    <Property Name="Year" Type="varchar" MaxLength="50" />
+    <Property Name="SizeX" Type="int" />
+    <Property Name="SizeY" Type="int" />
+    <Property Name="Col" Type="int" />
+    <Property Name="Row" Type="int" />
+    <Property Name="ChartUIId" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PinToDashboard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserFkId" Type="int" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="ChartType" Type="varchar" MaxLength="50" />
+    <Property Name="Baseline" Type="varchar" MaxLength="10" />
+    <Property Name="DeviceFkId" Type="int" />
+    <Property Name="ControllerName" Type="varchar" MaxLength="150" />
+    <Property Name="ReadingTypeName" Type="varchar" MaxLength="100" />
+    <Property Name="TableName" Type="varchar" MaxLength="100" />
+    <Property Name="Datapoint" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SeriesName" Type="varchar" MaxLength="250" />
+    <Property Name="ChartTitle" Type="varchar" MaxLength="100" />
+    <Property Name="IconClass" Type="varchar" MaxLength="50" />
+    <Property Name="xAxisText" Type="varchar" MaxLength="50" />
+    <Property Name="yAxisText" Type="varchar" MaxLength="100" />
+    <Property Name="xAxisUnit" Type="varchar" MaxLength="50" />
+    <Property Name="yAxisUnit" Type="varchar" MaxLength="50" />
+    <Property Name="xAxisDecimalPoints" Type="varchar" MaxLength="50" />
+    <Property Name="yAxisDecimalPoints" Type="varchar" MaxLength="50" />
+    <Property Name="HighCaps" Type="varchar" MaxLength="50" />
+    <Property Name="LowCaps" Type="varchar" MaxLength="50" />
+    <Property Name="SizeX" Type="int" Nullable="false" />
+    <Property Name="SizeY" Type="int" Nullable="false" />
+    <Property Name="Col" Type="int" Nullable="false" />
+    <Property Name="Row" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rating">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Reading">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObjectFkId" Type="int" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataFieldFkId" Type="int" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Value" Type="float" />
+    <Property Name="Timestamp" Type="datetime2" Precision="3" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="3" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime2" Precision="3" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+    <Property Name="IsAlertProcess" Type="bit" />
+    <Property Name="UtcTimestamp" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sbn_cwDB.dbo.ReadingTestV2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ReadingTestV2">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="Value" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="ObjectFkId" Type="int" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+    <Property Name="Value" Type="float" Nullable="false" />
+    <Property Name="Timestamp" Type="datetime2" Precision="3" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sbn_cwDB.dbo.ReadingV2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ReadingV2">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="Value" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="ObjectFkId" Type="int" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+    <Property Name="Value" Type="float" Nullable="false" />
+    <Property Name="Timestamp" Type="datetime2" Precision="3" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sbn_cwDB.dbo.ReadingV3' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ReadingV3">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="Value" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="ObjectFkId" Type="int" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+    <Property Name="Value" Type="float" Nullable="false" />
+    <Property Name="Timestamp" Type="datetime2" Precision="3" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ReportTables">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="ParameterName" Type="nvarchar" MaxLength="100" />
+    <Property Name="TableName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Timestamp" Type="datetime" />
+    <Property Name="Unit" Type="nvarchar" MaxLength="50" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="Value" Type="float" />
+    <Property Name="ParamterDisplayName" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="UserFkId" Type="int" />
+    <Property Name="ReportType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sbn_cwDB.dbo.ReportTablesExpression' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ReportTablesExpression">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ParameterName" />
+      <PropertyRef Name="TableName" />
+      <PropertyRef Name="Unit" />
+      <PropertyRef Name="OrderId" />
+      <PropertyRef Name="Expr" />
+    </Key>
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="ParameterName" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="TableName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Unit" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="Expr" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoleBuildingMapping">
+    <Key>
+      <PropertyRef Name="RoleFkId" />
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="Rolename" />
+      <PropertyRef Name="BuildingId" />
+    </Key>
+    <Property Name="RoleFkId" Type="int" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="Rolename" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SchematicReading">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Reading" Type="text" />
+    <Property Name="CreatedAt" Type="datetime" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Scheme">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="SensorDevice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Model" Type="nvarchar" MaxLength="100" />
+    <Property Name="DeviceId" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MacAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="SerialNumber" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsComputed" Type="bit" />
+    <Property Name="IsSmart" Type="bit" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="50" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SensorSyncTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CWBuildingDataPointFkId" Type="int" Nullable="false" />
+    <Property Name="Sensor" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="Message" Type="nvarchar" MaxLength="50" />
+    <Property Name="Timestamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TempRawData">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="ChilledWaterHeaderSupplyFlow" Type="float" />
+    <Property Name="ChilledWaterHeaderReturnTemperature" Type="float" />
+    <Property Name="ChilledWaterHeaderSupplyTemperature" Type="float" />
+    <Property Name="CondenserHeaderSupplyFlow" Type="float" />
+    <Property Name="CondenserHeaderReturnTemperature" Type="float" />
+    <Property Name="CondenserHeaderSupplyTemperature" Type="float" />
+    <Property Name="ChillerPower1" Type="float" />
+    <Property Name="ChillerPower2" Type="float" />
+    <Property Name="ChillerPower3" Type="float" />
+    <Property Name="ChillerPower4" Type="float" />
+    <Property Name="ChillerPower5" Type="float" />
+    <Property Name="CondenserPumpPower1" Type="float" />
+    <Property Name="CondenserPumpPower2" Type="float" />
+    <Property Name="CondenserPumpPower3" Type="float" />
+    <Property Name="CondenserPumpPower4" Type="float" />
+    <Property Name="CondenserPumpPower5" Type="float" />
+    <Property Name="CoolingTowerPower1" Type="float" />
+    <Property Name="CoolingTowerPower2" Type="float" />
+    <Property Name="CoolingTowerPower3" Type="float" />
+    <Property Name="CoolingTowerPower4" Type="float" />
+    <Property Name="ChillerWaterPumpPower1" Type="float" />
+    <Property Name="ChillerWaterPumpPower2" Type="float" />
+    <Property Name="ChillerWaterPumpPower3" Type="float" />
+    <Property Name="ChillerWaterPumpPower4" Type="float" />
+    <Property Name="ChillerWaterPumpPower5" Type="float" />
+  </EntityType>
+  <EntityType Name="TempReading">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ObjectFkId" Type="int" Nullable="false" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ObjectNo" Type="int" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Value" Type="float" Nullable="false" />
+    <Property Name="Timestamp" Type="datetime2" Precision="3" Nullable="false" />
+    <Property Name="ExpressionColumn" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsProcess" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Computed" Type="bit" />
+    <Property Name="UtcTimestamp" Type="float" />
+    <Property Name="IsAlertProcess" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="3" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime2" Precision="3" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TempReading_Temp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ObjectFkId" Type="int" Nullable="false" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ObjectNo" Type="int" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Value" Type="float" Nullable="false" />
+    <Property Name="Timestamp" Type="datetime2" Precision="3" Nullable="false" />
+    <Property Name="ExpressionColumn" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsProcess" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Computed" Type="bit" />
+    <Property Name="UtcTimestamp" Type="float" />
+    <Property Name="IsAlertProcess" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime2" Precision="3" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime2" Precision="3" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sbn_cwDB.dbo.TempReading_TempV2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TempReading_TempV2">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="Value" />
+      <PropertyRef Name="ObjectNo" />
+      <PropertyRef Name="ExpressionColumn" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="ObjectFkId" Type="int" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+    <Property Name="Value" Type="float" Nullable="false" />
+    <Property Name="ObjectNo" Type="smallint" Nullable="false" />
+    <Property Name="ExpressionColumn" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Timestamp" Type="datetime2" Precision="3" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sbn_cwDB.dbo.TempReadingTestV2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TempReadingTestV2">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="Value" />
+      <PropertyRef Name="ObjectNo" />
+      <PropertyRef Name="ExpressionColumn" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="ObjectFkId" Type="int" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+    <Property Name="Value" Type="float" Nullable="false" />
+    <Property Name="ObjectNo" Type="smallint" Nullable="false" />
+    <Property Name="ExpressionColumn" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Timestamp" Type="datetime2" Precision="3" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sbn_cwDB.dbo.TempReadingV2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TempReadingV2">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="Value" />
+      <PropertyRef Name="ObjectNo" />
+      <PropertyRef Name="ExpressionColumn" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="ObjectFkId" Type="int" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+    <Property Name="Value" Type="float" Nullable="false" />
+    <Property Name="ObjectNo" Type="smallint" Nullable="false" />
+    <Property Name="ExpressionColumn" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Timestamp" Type="datetime2" Precision="3" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'sbn_cwDB.dbo.TempReadingV3' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TempReadingV3">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="Value" />
+      <PropertyRef Name="ObjectNo" />
+      <PropertyRef Name="ExpressionColumn" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="ObjectFkId" Type="int" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+    <Property Name="Value" Type="float" Nullable="false" />
+    <Property Name="ObjectNo" Type="smallint" Nullable="false" />
+    <Property Name="ExpressionColumn" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Timestamp" Type="datetime2" Precision="3" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ObjectId" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Threshold">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" />
+    <Property Name="DataFieldFkId" Type="int" Nullable="false" />
+    <Property Name="DataFieldId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Value" Type="float" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TokenMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccessToken" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TokenExpirationTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserBuildingBookmark">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserFkId" Type="int" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="UserBuildingMapping">
+    <Key>
+      <PropertyRef Name="UserFkId" />
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="BuildingId" />
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="UserFkId" Type="int" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" Nullable="false" />
+    <Property Name="BuildingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserGroup">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="GroupId" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="GroupName" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="GroupId" Type="int" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GroupName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserSession">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="SessionId" Type="text" />
+    <Property Name="Expiration" Type="datetime" />
+    <Property Name="MultipleBrowserAllowed" Type="bit" />
+  </EntityType>
+  <EntityType Name="WaterBillParameters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+    <Property Name="MaxDecimalPoints" Type="int" />
+    <Property Name="ReturnFormat" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="TablePosition" Type="varchar" MaxLength="50" />
+    <Property Name="BillType" Type="varchar" MaxLength="50" />
+    <Property Name="IsExistInExpression" Type="bit" />
+    <Property Name="Expression" Type="nvarchar(max)" />
+    <Property Name="IsComputed" Type="bit" />
+  </EntityType>
+  <EntityType Name="WaterBillReading">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="Timestamp" Type="datetime" />
+    <Property Name="Value" Type="varchar" MaxLength="50" />
+    <Property Name="WaterBillParamFkId" Type="int" />
+  </EntityType>
+  <EntityType Name="WaterBillReadingV2">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="Timestamp" Type="datetime" />
+    <Property Name="Value" Type="varchar" MaxLength="50" />
+    <Property Name="WaterBillParamFkId" Type="int" />
+  </EntityType>
+  <EntityType Name="BuildingToModule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuildingFkId" Type="int" />
+    <Property Name="ModuleFkId" Type="int" />
+  </EntityType>
+  <EntityType Name="ClientGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientGroupName" Type="varchar" MaxLength="50" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ClientGroupToBuilding">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientGroupFkId" Type="int" />
+    <Property Name="BuildingFkId" Type="int" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuName" Type="varchar" MaxLength="50" />
+    <Property Name="MenuDisplayName" Type="varchar" MaxLength="50" />
+    <Property Name="Url" Type="nvarchar" MaxLength="250" />
+    <Property Name="IconClass" Type="varchar" MaxLength="50" />
+    <Property Name="ParentId" Type="int" Nullable="false" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="ObjectId" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="MenuToTab">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuFkId" Type="int" />
+    <Property Name="TabFkId" Type="int" />
+    <Property Name="BuildingFkId" Type="int" />
+  </EntityType>
+  <EntityType Name="Module">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModuleName" Type="varchar" MaxLength="50" />
+    <Property Name="ModuleDisplayName" Type="varchar" MaxLength="50" />
+    <Property Name="Url" Type="nvarchar" MaxLength="250" />
+    <Property Name="IconClass" Type="varchar" MaxLength="50" />
+    <Property Name="ParentId" Type="int" Nullable="false" />
+    <Property Name="OrderId" Type="int" />
+  </EntityType>
+  <EntityType Name="ModuleToMenu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModuleFkId" Type="int" />
+    <Property Name="MenuFkId" Type="int" />
+    <Property Name="BuildingFkId" Type="int" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+    <Property Name="ExpirationTime" Type="int" />
+  </EntityType>
+  <EntityType Name="RolePermission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleFkId" Type="int" />
+    <Property Name="NavigationFkId" Type="int" />
+    <Property Name="TabFkId" Type="int" />
+    <Property Name="TypeName" Type="varchar" MaxLength="25" />
+    <Property Name="BuildingFkId" Type="int" />
+  </EntityType>
+  <EntityType Name="RoleToUserAction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleFkId" Type="int" />
+    <Property Name="CanAdd" Type="bit" />
+    <Property Name="CanUpdate" Type="bit" />
+    <Property Name="CanDelete" Type="bit" />
+    <Property Name="CanView" Type="bit" />
+  </EntityType>
+  <EntityType Name="Tab">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TabName" Type="varchar" MaxLength="50" />
+    <Property Name="TabDisplayName" Type="varchar" MaxLength="50" />
+    <Property Name="Url" Type="nvarchar" MaxLength="250" />
+    <Property Name="OrderId" Type="int" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="FullName" Type="nvarchar(max)" />
+    <Property Name="MobileNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="50" />
+    <Property Name="Designation" Type="varchar" MaxLength="100" />
+    <Property Name="IsLoggedIn" Type="bit" />
+    <Property Name="PreferredLogin" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserAction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActionName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserLog">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="SignInOutTime" Type="datetime" />
+    <Property Name="SignType" Type="varchar" MaxLength="50" />
+    <Property Name="Duration" Type="float" />
+  </EntityType>
+  <EntityType Name="UserPermission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RolePermissionFkId" Type="int" />
+    <Property Name="UserFkId" Type="int" />
+    <Property Name="NavigationFkId" Type="int" />
+    <Property Name="TabFkId" Type="int" />
+    <Property Name="TypeName" Type="varchar" MaxLength="25" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="BuildingFkId" Type="int" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserToBuilding">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserFkId" Type="int" />
+    <Property Name="BuildingFkId" Type="int" />
+  </EntityType>
+  <EntityType Name="UserToClientGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserFkId" Type="int" />
+    <Property Name="ClientGroupFkId" Type="int" />
+  </EntityType>
+  <EntityContainer Name="sbn_cwDBModelStoreContainer">
+    <EntitySet Name="Alert" EntityType="Self.Alert" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlertData" EntityType="Self.AlertData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlertMaster" EntityType="Self.AlertMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlertProccessingTrack" EntityType="Self.AlertProccessingTrack" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlertRuleDataPoint" EntityType="Self.AlertRuleDataPoint" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlertRuleSetup" EntityType="Self.AlertRuleSetup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlertRuleType" EntityType="Self.AlertRuleType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlertSuppress" EntityType="Self.AlertSuppress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BacnetObjectDatafieldMapping" EntityType="Self.BacnetObjectDatafieldMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Baseline" EntityType="Self.Baseline" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BaselineCommon" EntityType="Self.BaselineCommon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BaselineCommonDataPoint" EntityType="Self.BaselineCommonDataPoint" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BaselineLearnedDate" EntityType="Self.BaselineLearnedDate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BaselineMaster" EntityType="Self.BaselineMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BillFile" EntityType="Self.BillFile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BillMapping" EntityType="Self.BillMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BillParameters" EntityType="Self.BillParameters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BMSReportFileProgress" EntityType="Self.BMSReportFileProgress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Building" EntityType="Self.Building" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BuildingDataPoint" EntityType="Self.BuildingDataPoint" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BuildingGFA" EntityType="Self.BuildingGFA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BuildingHeadersMapping" EntityType="Self.BuildingHeadersMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BuildingObject" EntityType="Self.BuildingObject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BuildingObjectData" EntityType="Self.BuildingObjectData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BuildingObjectMapping" EntityType="Self.BuildingObjectMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BuildingStaticInformation" EntityType="Self.BuildingStaticInformation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BuildingType" EntityType="Self.BuildingType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BuildingUser" EntityType="Self.BuildingUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BuildingValueLimits" EntityType="Self.BuildingValueLimits" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Computation" EntityType="Self.Computation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComputedInfo" EntityType="Self.ComputedInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CWAlert" EntityType="Self.CWAlert" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CWAlertRuleSetup" EntityType="Self.CWAlertRuleSetup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CWBaselineCommon" EntityType="Self.CWBaselineCommon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CWBuildingDataPoint" EntityType="Self.CWBuildingDataPoint" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CWElectricityBillParameters" EntityType="Self.CWElectricityBillParameters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CWElectricityBillReading" EntityType="Self.CWElectricityBillReading" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DataField" EntityType="Self.DataField" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Designed" EntityType="Self.Designed" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ElectricityBillParameters" EntityType="Self.ElectricityBillParameters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ElectricityBillReading" EntityType="Self.ElectricityBillReading" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ElectricityBillReadingV2" EntityType="Self.ElectricityBillReadingV2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ElectricityBuildingUnit" EntityType="Self.ElectricityBuildingUnit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ElectricityMeter" EntityType="Self.ElectricityMeter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ElectricityTenant" EntityType="Self.ElectricityTenant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ElectricityTenantCategory" EntityType="Self.ElectricityTenantCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailSummaryNotifyGroup" EntityType="Self.EmailSummaryNotifyGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmailSummaryNotifyUser" EntityType="Self.EmailSummaryNotifyUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EnergyBill" EntityType="Self.EnergyBill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExcelToReportDataPoint" EntityType="Self.ExcelToReportDataPoint" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExportMapping" EntityType="Self.ExportMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Expression" EntityType="Self.Expression" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FlagAlertTrack" EntityType="Self.FlagAlertTrack" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GasBillParameters" EntityType="Self.GasBillParameters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GasBillReading" EntityType="Self.GasBillReading" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GasBillReadingV2" EntityType="Self.GasBillReadingV2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HealthyRangeSetup" EntityType="Self.HealthyRangeSetup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MenuAuthentication" EntityType="Self.MenuAuthentication" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ModuleConfiguration" EntityType="Self.ModuleConfiguration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NotifyUser" EntityType="Self.NotifyUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NotifyUserGroup" EntityType="Self.NotifyUserGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Object" EntityType="Self.Object" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ObjectData" EntityType="Self.ObjectData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PinMapping" EntityType="Self.PinMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PinToDashboard" EntityType="Self.PinToDashboard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reading" EntityType="Self.Reading" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReportTables" EntityType="Self.ReportTables" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoleBuildingMapping" EntityType="Self.RoleBuildingMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SchematicReading" EntityType="Self.SchematicReading" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Scheme" EntityType="Self.Scheme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SensorDevice" EntityType="Self.SensorDevice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SensorSyncTable" EntityType="Self.SensorSyncTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TempRawData" EntityType="Self.TempRawData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TempReading" EntityType="Self.TempReading" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TempReading_Temp" EntityType="Self.TempReading_Temp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Threshold" EntityType="Self.Threshold" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TokenMapping" EntityType="Self.TokenMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserBuildingBookmark" EntityType="Self.UserBuildingBookmark" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserBuildingMapping" EntityType="Self.UserBuildingMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserGroup" EntityType="Self.UserGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserSession" EntityType="Self.UserSession" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WaterBillParameters" EntityType="Self.WaterBillParameters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WaterBillReading" EntityType="Self.WaterBillReading" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WaterBillReadingV2" EntityType="Self.WaterBillReadingV2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BuildingToModule" EntityType="Self.BuildingToModule" Schema="UM" store:Type="Tables" />
+    <EntitySet Name="ClientGroup" EntityType="Self.ClientGroup" Schema="UM" store:Type="Tables" />
+    <EntitySet Name="ClientGroupToBuilding" EntityType="Self.ClientGroupToBuilding" Schema="UM" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="UM" store:Type="Tables" />
+    <EntitySet Name="MenuToTab" EntityType="Self.MenuToTab" Schema="UM" store:Type="Tables" />
+    <EntitySet Name="Module" EntityType="Self.Module" Schema="UM" store:Type="Tables" />
+    <EntitySet Name="ModuleToMenu" EntityType="Self.ModuleToMenu" Schema="UM" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="UM" store:Type="Tables" />
+    <EntitySet Name="RolePermission" EntityType="Self.RolePermission" Schema="UM" store:Type="Tables" />
+    <EntitySet Name="RoleToUserAction" EntityType="Self.RoleToUserAction" Schema="UM" store:Type="Tables" />
+    <EntitySet Name="Tab" EntityType="Self.Tab" Schema="UM" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="UM" store:Type="Tables" />
+    <EntitySet Name="UserAction" EntityType="Self.UserAction" Schema="UM" store:Type="Tables" />
+    <EntitySet Name="UserLog" EntityType="Self.UserLog" Schema="UM" store:Type="Tables" />
+    <EntitySet Name="UserPermission" EntityType="Self.UserPermission" Schema="UM" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="UM" store:Type="Tables" />
+    <EntitySet Name="UserToBuilding" EntityType="Self.UserToBuilding" Schema="UM" store:Type="Tables" />
+    <EntitySet Name="UserToClientGroup" EntityType="Self.UserToClientGroup" Schema="UM" store:Type="Tables" />
+    <EntitySet Name="ElectricityMeterReading" EntityType="Self.ElectricityMeterReading" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ElectricityMeterReading].[BuildingId] AS [BuildingId], 
+[ElectricityMeterReading].[BuildingFkId] AS [BuildingFkId], 
+[ElectricityMeterReading].[BuildingUnitFkId] AS [BuildingUnitFkId], 
+[ElectricityMeterReading].[MeterFkId] AS [MeterFkId], 
+[ElectricityMeterReading].[TenantFkId] AS [TenantFkId], 
+[ElectricityMeterReading].[Value] AS [Value], 
+[ElectricityMeterReading].[Timestamp] AS [Timestamp]
+FROM [dbo].[ElectricityMeterReading] AS [ElectricityMeterReading]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ElectricityUnitTenantMapping" EntityType="Self.ElectricityUnitTenantMapping" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ElectricityUnitTenantMapping].[AccountNo] AS [AccountNo], 
+[ElectricityUnitTenantMapping].[TenantFkId] AS [TenantFkId], 
+[ElectricityUnitTenantMapping].[BuildingUnitFkId] AS [BuildingUnitFkId], 
+[ElectricityUnitTenantMapping].[StartDate] AS [StartDate], 
+[ElectricityUnitTenantMapping].[EndDate] AS [EndDate], 
+[ElectricityUnitTenantMapping].[IsActive] AS [IsActive], 
+[ElectricityUnitTenantMapping].[CreatedBy] AS [CreatedBy], 
+[ElectricityUnitTenantMapping].[CreatedDate] AS [CreatedDate], 
+[ElectricityUnitTenantMapping].[UpdatedBy] AS [UpdatedBy], 
+[ElectricityUnitTenantMapping].[UpdatedDate] AS [UpdatedDate]
+FROM [dbo].[ElectricityUnitTenantMapping] AS [ElectricityUnitTenantMapping]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="IAQReading" EntityType="Self.IAQReading" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[IAQReading].[DeviceFkId] AS [DeviceFkId], 
+[IAQReading].[Name] AS [Name], 
+[IAQReading].[Value] AS [Value], 
+[IAQReading].[Unit] AS [Unit], 
+[IAQReading].[Timestamp] AS [Timestamp]
+FROM [dbo].[IAQReading] AS [IAQReading]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="missingDataTemp7" EntityType="Self.missingDataTemp7" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[missingDataTemp7].[BuildingFkId] AS [BuildingFkId], 
+[missingDataTemp7].[ObjectFkId] AS [ObjectFkId], 
+[missingDataTemp7].[DataFieldFkId] AS [DataFieldFkId], 
+[missingDataTemp7].[Value] AS [Value], 
+[missingDataTemp7].[ObjectNo] AS [ObjectNo], 
+[missingDataTemp7].[ExpressionColumn] AS [ExpressionColumn], 
+[missingDataTemp7].[Timestamp] AS [Timestamp], 
+[missingDataTemp7].[BuildingId] AS [BuildingId], 
+[missingDataTemp7].[ObjectId] AS [ObjectId], 
+[missingDataTemp7].[DataFieldId] AS [DataFieldId]
+FROM [dbo].[missingDataTemp7] AS [missingDataTemp7]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ReadingTestV2" EntityType="Self.ReadingTestV2" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ReadingTestV2].[BuildingFkId] AS [BuildingFkId], 
+[ReadingTestV2].[ObjectFkId] AS [ObjectFkId], 
+[ReadingTestV2].[DataFieldFkId] AS [DataFieldFkId], 
+[ReadingTestV2].[Value] AS [Value], 
+[ReadingTestV2].[Timestamp] AS [Timestamp], 
+[ReadingTestV2].[BuildingId] AS [BuildingId], 
+[ReadingTestV2].[ObjectId] AS [ObjectId], 
+[ReadingTestV2].[DataFieldId] AS [DataFieldId]
+FROM [dbo].[ReadingTestV2] AS [ReadingTestV2]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ReadingV2" EntityType="Self.ReadingV2" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ReadingV2].[BuildingFkId] AS [BuildingFkId], 
+[ReadingV2].[ObjectFkId] AS [ObjectFkId], 
+[ReadingV2].[DataFieldFkId] AS [DataFieldFkId], 
+[ReadingV2].[Value] AS [Value], 
+[ReadingV2].[Timestamp] AS [Timestamp], 
+[ReadingV2].[BuildingId] AS [BuildingId], 
+[ReadingV2].[ObjectId] AS [ObjectId], 
+[ReadingV2].[DataFieldId] AS [DataFieldId], 
+[ReadingV2].[CreateDate] AS [CreateDate]
+FROM [dbo].[ReadingV2] AS [ReadingV2]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ReadingV3" EntityType="Self.ReadingV3" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ReadingV3].[BuildingFkId] AS [BuildingFkId], 
+[ReadingV3].[ObjectFkId] AS [ObjectFkId], 
+[ReadingV3].[DataFieldFkId] AS [DataFieldFkId], 
+[ReadingV3].[Value] AS [Value], 
+[ReadingV3].[Timestamp] AS [Timestamp], 
+[ReadingV3].[BuildingId] AS [BuildingId], 
+[ReadingV3].[ObjectId] AS [ObjectId], 
+[ReadingV3].[DataFieldId] AS [DataFieldId]
+FROM [dbo].[ReadingV3] AS [ReadingV3]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ReportTablesExpression" EntityType="Self.ReportTablesExpression" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ReportTablesExpression].[BuildingFkId] AS [BuildingFkId], 
+[ReportTablesExpression].[ParameterName] AS [ParameterName], 
+[ReportTablesExpression].[TableName] AS [TableName], 
+[ReportTablesExpression].[Unit] AS [Unit], 
+[ReportTablesExpression].[OrderId] AS [OrderId], 
+[ReportTablesExpression].[Expr] AS [Expr]
+FROM [dbo].[ReportTablesExpression] AS [ReportTablesExpression]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TempReading_TempV2" EntityType="Self.TempReading_TempV2" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[TempReading_TempV2].[BuildingFkId] AS [BuildingFkId], 
+[TempReading_TempV2].[ObjectFkId] AS [ObjectFkId], 
+[TempReading_TempV2].[DataFieldFkId] AS [DataFieldFkId], 
+[TempReading_TempV2].[Value] AS [Value], 
+[TempReading_TempV2].[ObjectNo] AS [ObjectNo], 
+[TempReading_TempV2].[ExpressionColumn] AS [ExpressionColumn], 
+[TempReading_TempV2].[Timestamp] AS [Timestamp], 
+[TempReading_TempV2].[BuildingId] AS [BuildingId], 
+[TempReading_TempV2].[ObjectId] AS [ObjectId], 
+[TempReading_TempV2].[DataFieldId] AS [DataFieldId]
+FROM [dbo].[TempReading_TempV2] AS [TempReading_TempV2]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TempReadingTestV2" EntityType="Self.TempReadingTestV2" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[TempReadingTestV2].[BuildingFkId] AS [BuildingFkId], 
+[TempReadingTestV2].[ObjectFkId] AS [ObjectFkId], 
+[TempReadingTestV2].[DataFieldFkId] AS [DataFieldFkId], 
+[TempReadingTestV2].[Value] AS [Value], 
+[TempReadingTestV2].[ObjectNo] AS [ObjectNo], 
+[TempReadingTestV2].[ExpressionColumn] AS [ExpressionColumn], 
+[TempReadingTestV2].[Timestamp] AS [Timestamp], 
+[TempReadingTestV2].[BuildingId] AS [BuildingId], 
+[TempReadingTestV2].[ObjectId] AS [ObjectId], 
+[TempReadingTestV2].[DataFieldId] AS [DataFieldId]
+FROM [dbo].[TempReadingTestV2] AS [TempReadingTestV2]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TempReadingV2" EntityType="Self.TempReadingV2" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[TempReadingV2].[BuildingFkId] AS [BuildingFkId], 
+[TempReadingV2].[ObjectFkId] AS [ObjectFkId], 
+[TempReadingV2].[DataFieldFkId] AS [DataFieldFkId], 
+[TempReadingV2].[Value] AS [Value], 
+[TempReadingV2].[ObjectNo] AS [ObjectNo], 
+[TempReadingV2].[ExpressionColumn] AS [ExpressionColumn], 
+[TempReadingV2].[Timestamp] AS [Timestamp], 
+[TempReadingV2].[BuildingId] AS [BuildingId], 
+[TempReadingV2].[ObjectId] AS [ObjectId], 
+[TempReadingV2].[DataFieldId] AS [DataFieldId], 
+[TempReadingV2].[CreateDate] AS [CreateDate]
+FROM [dbo].[TempReadingV2] AS [TempReadingV2]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TempReadingV3" EntityType="Self.TempReadingV3" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[TempReadingV3].[BuildingFkId] AS [BuildingFkId], 
+[TempReadingV3].[ObjectFkId] AS [ObjectFkId], 
+[TempReadingV3].[DataFieldFkId] AS [DataFieldFkId], 
+[TempReadingV3].[Value] AS [Value], 
+[TempReadingV3].[ObjectNo] AS [ObjectNo], 
+[TempReadingV3].[ExpressionColumn] AS [ExpressionColumn], 
+[TempReadingV3].[Timestamp] AS [Timestamp], 
+[TempReadingV3].[BuildingId] AS [BuildingId], 
+[TempReadingV3].[ObjectId] AS [ObjectId], 
+[TempReadingV3].[DataFieldId] AS [DataFieldId]
+FROM [dbo].[TempReadingV3] AS [TempReadingV3]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

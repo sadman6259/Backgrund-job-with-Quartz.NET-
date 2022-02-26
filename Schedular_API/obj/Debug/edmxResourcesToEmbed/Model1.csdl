@@ -1,0 +1,1947 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sbn_cwDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Alert">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AlertRuleDataPointId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ObjetFkId" Type="Int32" Nullable="false" />
+    <Property Name="ObjetId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FromDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ToDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Severity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AlertValue" Type="Double" Nullable="false" />
+    <Property Name="ReferenceValue" Type="Double" Nullable="false" />
+    <Property Name="LastRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AlertCondition" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsSMS" Type="Boolean" Nullable="false" />
+    <Property Name="IsEmail" Type="Boolean" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ObjectNo" Type="Int32" />
+    <Property Name="Resolved" Type="Boolean" />
+    <Property Name="RealTimeAlert" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" Precision="3" />
+    <Property Name="LastEmailDateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="AlertData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectFkId" Type="Int32" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataFieldFkId" Type="Int32" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReadingValue" Type="Double" />
+    <Property Name="BaselineValue" Type="Double" />
+    <Property Name="Timestamp" Type="DateTime" Precision="3" />
+    <Property Name="Severity" Type="Int32" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="IsEmail" Type="Boolean" />
+    <Property Name="IsSMS" Type="Boolean" />
+    <Property Name="IsProcess" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsAlertProcess" Type="Boolean" />
+    <Property Name="Condition" Type="Int32" />
+    <Property Name="AlertRoleValue" Type="Double" />
+    <Property Name="UserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="AlertMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModuleFkId" Type="Int32" />
+    <Property Name="AlertRuleSetupFkId" Type="Int32" />
+    <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AlertProccessingTrack">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+    <Property Name="LastProcessDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="AlertRuleDataPoint">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AlertRuleSetupId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectFkId" Type="Int32" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataFieldFkId" Type="Int32" />
+    <Property Name="ObjectNo" Type="Int32" />
+    <Property Name="FirstOccurance" Type="DateTime" Precision="3" />
+    <Property Name="LastOccurance" Type="DateTime" Precision="3" />
+    <Property Name="OccuranceCount" Type="Int32" />
+    <Property Name="SameDataOccuranceValue" Type="Double" />
+  </EntityType>
+  <EntityType Name="AlertRuleSetup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectDisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataFieldDisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Severity" Type="Int32" />
+    <Property Name="Value" Type="Double" />
+    <Property Name="Condition" Type="Int32" />
+    <Property Name="ReferenceValue" Type="Double" />
+    <Property Name="DateRange" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="AveragingWindow" Type="Int32" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="IsEmail" Type="Boolean" />
+    <Property Name="IsSMS" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ValueComingFromFlag" Type="Int32" />
+    <Property Name="CustomValue" Type="Double" />
+    <Property Name="AlertText" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Remarks" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="FixedRulebyBCA" Type="Boolean" />
+    <Property Name="DataComingFromReadingOrTempReading" Type="Int32" />
+    <Property Name="SummaryNotification" Type="Int32" />
+    <Property Name="AlertType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WeekDays" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AlertRuleTypeId" Type="Int32" />
+    <Property Name="Interval" Type="Int32" />
+    <Property Name="Occurance" Type="Int32" />
+    <Property Name="GreenMarkInterval" Type="Int32" />
+    <Property Name="GreenMarkCondition" Type="Int32" />
+    <Property Name="Period" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SendTo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AlertRuleType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AlertSuppress">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="UserEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FromDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ToDatetime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="BacnetObjectDatafieldMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectFkId" Type="Int32" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DatafieldFkId" Type="Int32" />
+    <Property Name="DatafieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BacnetOjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BacnetDatafiledId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Baseline">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ObjectFkId" Type="Int32" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DataFieldFkId" Type="Int32" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="Double" />
+    <Property Name="WeekDay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WeekDayInt" Type="Int32" />
+    <Property Name="TimeSlat" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BaselineCommon">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ObjectDisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DataFieldDisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BaselineType" Type="Int32" />
+    <Property Name="FromDate" Type="DateTime" Precision="3" />
+    <Property Name="ToDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AlertType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WeekDays" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BaselineCommonDataPoint">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BaselineCommonId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectNo" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="Double" />
+  </EntityType>
+  <EntityType Name="BaselineLearnedDate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BCLId" Type="Int32" Nullable="false" />
+    <Property Name="BaselineDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="BaselineMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModuleFkId" Type="Int32" />
+    <Property Name="BaselineFkId" Type="Int32" />
+    <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BillFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MonthYear" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Module" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MeterName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BillMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="BillType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BillParamFkId" Type="Int32" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Keys" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SplitBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SplitPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RemoveString" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReturnFormat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BillParameter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Category" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="ColorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BMSReportFileProgress">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserFkId" Type="Int32" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="DisplayName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="ExcelFileName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="ProcessedJSONFileName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Timestamp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Building">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="FakeName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GFA" Type="Double" />
+    <Property Name="EUI" Type="Double" />
+    <Property Name="ContactPerson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GreenMarkRating" Type="Int32" />
+    <Property Name="GreenMarkExpiry" Type="DateTime" Precision="0" />
+    <Property Name="Award" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="AirconditionedArea" Type="Double" />
+    <Property Name="Established" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WorkingPeriodStart" Type="DateTime" Precision="3" />
+    <Property Name="WorkingPeriodEnd" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="ImageLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="Double" />
+    <Property Name="Lattitude" Type="Double" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WorkingPeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tariff" Type="Double" />
+    <Property Name="NotificationProcess" Type="Int32" />
+    <Property Name="ChillerPlantBitmap" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ChwFlowDesigned" Type="Double" />
+    <Property Name="CwFlowDesigned" Type="Double" />
+    <Property Name="BaselineType" Type="Int32" />
+    <Property Name="OperatingFromWeekDay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OperatingToWeekDay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SecretKey" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="BaselineRange" Type="Int32" />
+    <Property Name="IsTemplate" Type="Boolean" />
+    <Property Name="InactiveDate" Type="DateTime" Precision="3" />
+    <Property Name="Baseline" Type="Double" />
+    <Property Name="IsCompuationRunning" Type="Boolean" />
+    <Property Name="Currency" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="PIC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDateForReportTable" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsReportTableComputationRunning" Type="Boolean" />
+    <Property Name="BCA_WorkingPeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BCA_WeekDays" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CountryFkId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BuildingDataPoint">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ObjectNo" Type="Int32" Nullable="false" />
+    <Property Name="ObjectDisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DataFieldDisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsComputed" Type="Boolean" />
+    <Property Name="LastDataReceived" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="BuildingGFA">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="FromTimestamp" Type="DateTime" Precision="3" />
+    <Property Name="ToTimestamp" Type="DateTime" Precision="3" />
+    <Property Name="GFA" Type="Double" />
+  </EntityType>
+  <EntityType Name="BuildingHeadersMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingObjectMappingFkId" Type="Int32" />
+    <Property Name="TabName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ObjectNo" Type="Int32" />
+    <Property Name="ObjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BuildingObject">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="BuildingId" />
+      <PropertyRef Name="ObjectId" />
+    </Key>
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ObjectQty" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BuildingObjectData">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="BuildingId" />
+      <PropertyRef Name="ObjectId" />
+      <PropertyRef Name="DataFieldId" />
+      <PropertyRef Name="ObjectNo" />
+    </Key>
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ObjectNo" Type="Int32" Nullable="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RawDataFieldNumber" Type="Int32" />
+    <Property Name="ComputedDataFieldNumber" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BuildingObjectMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CHWPTemperatureObjectNo" Type="Int32" />
+    <Property Name="CWPTemperatureObjectNo" Type="Int32" />
+    <Property Name="CHWPPowerObjectNo" Type="Int32" />
+    <Property Name="CHPowerObjectNo" Type="Int32" />
+    <Property Name="CWPPowerObjectNo" Type="Int32" />
+    <Property Name="CTPowerObjectNo" Type="Int32" />
+    <Property Name="CHWPFlowrateObjectNo" Type="Int32" />
+    <Property Name="CWPFlowrateObjectNo" Type="Int32" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="Url" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BuildingStaticInformation">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+    </Key>
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PostalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateofLastEnergyAuditSubmission" Type="DateTime" Precision="3" />
+    <Property Name="NumberofGuestRooms" Type="Int32" />
+    <Property Name="StarginDate" Type="DateTime" Precision="3" />
+    <Property Name="Location" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="OwnerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BuildingType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Icon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BuildingUser">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="UserFkId" />
+      <PropertyRef Name="BuildingId" />
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="UserFkId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BuildingValueLimit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModuleName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="LowCap" Type="Double" />
+    <Property Name="HighCap" Type="Double" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Computation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectFkId" Type="Int32" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataFieldFkId" Type="Int32" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="Double" />
+    <Property Name="Timestamp" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ComputedInfo">
+    <Key>
+      <PropertyRef Name="AutoId" />
+    </Key>
+    <Property Name="AutoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ObjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Module" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ValueType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Flag" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="CWAlert">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CWAlertRuleSetupFkId" Type="Int32" />
+    <Property Name="CWBuildingDataPointFkId" Type="Int32" />
+    <Property Name="FromDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ToDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Severity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AlertValue" Type="Double" Nullable="false" />
+    <Property Name="ReferenceValue" Type="Double" Nullable="false" />
+    <Property Name="LastRecord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AlertCondition" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsSMS" Type="Boolean" Nullable="false" />
+    <Property Name="IsEmail" Type="Boolean" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Resolved" Type="Boolean" />
+    <Property Name="RealTimeAlert" Type="Boolean" />
+    <Property Name="Timestamp" Type="DateTime" Precision="3" />
+    <Property Name="LastEmailDateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="CWAlertRuleSetup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CWBuildingDataPointFkId" Type="Int32" />
+    <Property Name="Severity" Type="Int32" />
+    <Property Name="Value" Type="Double" />
+    <Property Name="Condition" Type="Int32" />
+    <Property Name="ReferenceValue" Type="Double" />
+    <Property Name="DateRange" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="AveragingWindow" Type="Int32" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="IsEmail" Type="Boolean" />
+    <Property Name="IsSMS" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ValueComingFromFlag" Type="Int32" />
+    <Property Name="CustomValue" Type="Double" />
+    <Property Name="AlertText" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Remarks" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="FixedRulebyBCA" Type="Boolean" />
+    <Property Name="DataComingFromReadingOrTempReading" Type="Int32" />
+    <Property Name="SummaryNotification" Type="Int32" />
+    <Property Name="AlertType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WeekDays" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AlertRuleTypeId" Type="Int32" />
+    <Property Name="Interval" Type="Int32" />
+    <Property Name="Occurance" Type="Int32" />
+    <Property Name="GreenMarkInterval" Type="Int32" />
+    <Property Name="GreenMarkCondition" Type="Int32" />
+    <Property Name="Period" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SendTo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="FirstOccurance" Type="DateTime" Precision="3" />
+    <Property Name="LastOccurance" Type="DateTime" Precision="3" />
+    <Property Name="OccuranceCount" Type="Int32" />
+    <Property Name="SameDataOccuranceValue" Type="Double" />
+  </EntityType>
+  <EntityType Name="CWBaselineCommon">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CWBuildingDataPointFkId" Type="Int32" />
+    <Property Name="BaselineType" Type="Int32" />
+    <Property Name="FromDate" Type="DateTime" Precision="3" />
+    <Property Name="ToDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AlertType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WeekDays" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="Double" />
+    <Property Name="SendTo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CWBuildingDataPoint">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Sensor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceFkId" Type="Int32" />
+    <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CWElectricityBillParameter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaxDecimalPoints" Type="Int32" />
+    <Property Name="ReturnFormat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="TablePosition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BillType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsExistInExpression" Type="Boolean" />
+    <Property Name="Expression" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsComputed" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="CWElectricityBillReading">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="Timestamp" Type="DateTime" Precision="3" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CWElectricityBillParamFkId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DataField">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Unit" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IsRaw" Type="Boolean" />
+    <Property Name="IsCompute" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Designed">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="Double" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ElectricityBillParameter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="Category" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="MaxDecimalPoints" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="BillType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReturnFormat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsExistInExpression" Type="Boolean" />
+    <Property Name="Expression" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsComputed" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ElectricityBillReading">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="BillHeadFkId" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="ElectricityBillReadingV2">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="BillHeadFkId" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="ElectricityBuildingUnit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UnitNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ElectricityMeter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MeterNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BuildingUnitFkId" Type="Int32" Nullable="false" />
+    <Property Name="IsBuildingMeter" Type="Boolean" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ElectricityTenant">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenantName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MeterFkId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingUnitFkId" Type="Int32" Nullable="false" />
+    <Property Name="TenantCategoryFkId" Type="Int32" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsBuildingMeter" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ElectricityTenantCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CatgoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="EmailSummaryNotifyGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="UserGroupId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="EmailSummaryNotifyUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="EnergyBill">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Month" Type="DateTime" Precision="0" />
+    <Property Name="ParameterId" Type="Int32" />
+    <Property Name="Value" Type="Double" />
+  </EntityType>
+  <EntityType Name="ExcelToReportDataPoint">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ObjectFkId" Type="Int32" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DataFieldFkId" Type="Int32" />
+    <Property Name="ObjectNo" Type="Int32" />
+    <Property Name="IsComputed" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ExportMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="DatapointId" Type="Int32" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ObjectNo" Type="Int32" />
+    <Property Name="DeviceFkId" Type="Int32" />
+    <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SensorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Expression">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Expr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsSchematic" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="FlagAlertTrack">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StartDateTime" Type="DateTime" Precision="3" />
+    <Property Name="TillNowDateTime" Type="DateTime" Precision="3" />
+    <Property Name="TillNowHeatBalanceTotalCount" Type="Int32" />
+    <Property Name="TillNowHeatBalanceInRangeCount" Type="Int32" />
+    <Property Name="TillNowHeatBalanceInRangePercentage" Type="Double" />
+    <Property Name="TillNowHighestBaseline" Type="Double" />
+    <Property Name="TillNowEfficiencyTotalCount" Type="Int32" />
+    <Property Name="TillNowEfficiencySum" Type="Double" />
+    <Property Name="TillNowSystemEfficiencyAverage" Type="Double" />
+  </EntityType>
+  <EntityType Name="GasBillParameter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaxDecimalPoints" Type="Int32" />
+    <Property Name="ReturnFormat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="TablePosition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BillType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="GasBillReading">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="Timestamp" Type="DateTime" Precision="3" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GasBillParamFkId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="GasBillReadingV2">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="Timestamp" Type="DateTime" Precision="3" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GasBillParamFkId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExpirationTime" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HealthyRangeSetup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceFkId" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MinValue" Type="Double" />
+    <Property Name="MaxValue" Type="Double" />
+    <Property Name="interval" Type="Double" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="yAxisMin" Type="Double" />
+    <Property Name="yAxisMax" Type="Double" />
+  </EntityType>
+  <EntityType Name="MenuAuthentication">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModuleId" Type="Int32" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="MenuId" Type="Int32" />
+    <Property Name="IsAuthorized" Type="Boolean" />
+    <Property Name="PermissionRole" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ModuleConfiguration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModuleFkId" Type="Int32" Nullable="false" />
+    <Property Name="IsAlert" Type="Boolean" />
+    <Property Name="IsBaseline" Type="Boolean" />
+    <Property Name="IsReport" Type="Boolean" />
+    <Property Name="IsAnalytics" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="NotifyUser">
+    <Key>
+      <PropertyRef Name="SL" />
+    </Key>
+    <Property Name="SL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AlertRuleSetupId" Type="Int32" />
+    <Property Name="UserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="NotifyUserGroup">
+    <Key>
+      <PropertyRef Name="SL" />
+    </Key>
+    <Property Name="SL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AlertRuleSetupId" Type="Int32" />
+    <Property Name="RoleId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Object">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Identifier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsRaw" Type="Boolean" />
+    <Property Name="IsCompute" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ObjectData">
+    <Key>
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="ObjectId" />
+      <PropertyRef Name="DataFieldId" />
+    </Key>
+    <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PinMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserFkId" Type="Int32" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="ObjectFkId" Type="Int32" />
+    <Property Name="DataFieldFkId" Type="Int32" />
+    <Property Name="ObjectNo" Type="Int32" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WeekDays" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DecimalPoint" Type="Int32" />
+    <Property Name="YaxisText" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ChartTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IconClass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HighCap" Type="Double" />
+    <Property Name="LowCap" Type="Double" />
+    <Property Name="XaxisText" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ChartType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Baseline" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ObjectFkIdList" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DataFieldFkIdList" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceFkId" Type="Int32" />
+    <Property Name="ReadingTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Year" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SizeX" Type="Int32" />
+    <Property Name="SizeY" Type="Int32" />
+    <Property Name="Col" Type="Int32" />
+    <Property Name="Row" Type="Int32" />
+    <Property Name="ChartUIId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PinToDashboard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserFkId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="ChartType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Baseline" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceFkId" Type="Int32" />
+    <Property Name="ControllerName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ReadingTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TableName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Datapoint" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SeriesName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="ChartTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IconClass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="xAxisText" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="yAxisText" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="xAxisUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="yAxisUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="xAxisDecimalPoints" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="yAxisDecimalPoints" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HighCaps" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LowCaps" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SizeX" Type="Int32" Nullable="false" />
+    <Property Name="SizeY" Type="Int32" Nullable="false" />
+    <Property Name="Col" Type="Int32" Nullable="false" />
+    <Property Name="Row" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rating">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Reading">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectFkId" Type="Int32" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataFieldFkId" Type="Int32" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="Double" />
+    <Property Name="Timestamp" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsAlertProcess" Type="Boolean" />
+    <Property Name="UtcTimestamp" Type="Double" />
+  </EntityType>
+  <EntityType Name="ReportTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="ParameterName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Timestamp" Type="DateTime" Precision="3" />
+    <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="Value" Type="Double" />
+    <Property Name="ParamterDisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="UserFkId" Type="Int32" />
+    <Property Name="ReportType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RoleBuildingMapping">
+    <Key>
+      <PropertyRef Name="RoleFkId" />
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="Rolename" />
+      <PropertyRef Name="BuildingId" />
+    </Key>
+    <Property Name="RoleFkId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="Rolename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SchematicReading">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Reading" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Scheme">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SensorDevice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MacAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SerialNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsComputed" Type="Boolean" />
+    <Property Name="IsSmart" Type="Boolean" />
+    <Property Name="Icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SensorSyncTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CWBuildingDataPointFkId" Type="Int32" Nullable="false" />
+    <Property Name="Sensor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="TempRawData">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="ChilledWaterHeaderSupplyFlow" Type="Double" />
+    <Property Name="ChilledWaterHeaderReturnTemperature" Type="Double" />
+    <Property Name="ChilledWaterHeaderSupplyTemperature" Type="Double" />
+    <Property Name="CondenserHeaderSupplyFlow" Type="Double" />
+    <Property Name="CondenserHeaderReturnTemperature" Type="Double" />
+    <Property Name="CondenserHeaderSupplyTemperature" Type="Double" />
+    <Property Name="ChillerPower1" Type="Double" />
+    <Property Name="ChillerPower2" Type="Double" />
+    <Property Name="ChillerPower3" Type="Double" />
+    <Property Name="ChillerPower4" Type="Double" />
+    <Property Name="ChillerPower5" Type="Double" />
+    <Property Name="CondenserPumpPower1" Type="Double" />
+    <Property Name="CondenserPumpPower2" Type="Double" />
+    <Property Name="CondenserPumpPower3" Type="Double" />
+    <Property Name="CondenserPumpPower4" Type="Double" />
+    <Property Name="CondenserPumpPower5" Type="Double" />
+    <Property Name="CoolingTowerPower1" Type="Double" />
+    <Property Name="CoolingTowerPower2" Type="Double" />
+    <Property Name="CoolingTowerPower3" Type="Double" />
+    <Property Name="CoolingTowerPower4" Type="Double" />
+    <Property Name="ChillerWaterPumpPower1" Type="Double" />
+    <Property Name="ChillerWaterPumpPower2" Type="Double" />
+    <Property Name="ChillerWaterPumpPower3" Type="Double" />
+    <Property Name="ChillerWaterPumpPower4" Type="Double" />
+    <Property Name="ChillerWaterPumpPower5" Type="Double" />
+  </EntityType>
+  <EntityType Name="TempReading">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ObjectNo" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Value" Type="Double" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ExpressionColumn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsProcess" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Computed" Type="Boolean" />
+    <Property Name="UtcTimestamp" Type="Double" />
+    <Property Name="IsAlertProcess" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TempReading_Temp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ObjectNo" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Value" Type="Double" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ExpressionColumn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsProcess" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Computed" Type="Boolean" />
+    <Property Name="UtcTimestamp" Type="Double" />
+    <Property Name="IsAlertProcess" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Threshold">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="Double" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserBuildingBookmark">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserFkId" Type="Int32" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="UserBuildingMapping">
+    <Key>
+      <PropertyRef Name="UserFkId" />
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="BuildingId" />
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="UserFkId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="UserGroup">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="GroupId" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="GroupName" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="GroupId" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserSession">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="SessionId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Expiration" Type="DateTime" Precision="3" />
+    <Property Name="MultipleBrowserAllowed" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="WaterBillParameter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaxDecimalPoints" Type="Int32" />
+    <Property Name="ReturnFormat" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="TablePosition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BillType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsExistInExpression" Type="Boolean" />
+    <Property Name="Expression" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsComputed" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="WaterBillReading">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="Timestamp" Type="DateTime" Precision="3" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WaterBillParamFkId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="WaterBillReadingV2">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="Timestamp" Type="DateTime" Precision="3" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WaterBillParamFkId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="BuildingToModule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuildingFkId" Type="Int32" />
+    <Property Name="ModuleFkId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ClientGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientGroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ImageUrl" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ClientGroupToBuilding">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientGroupFkId" Type="Int32" />
+    <Property Name="BuildingFkId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MenuDisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IconClass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ParentId" Type="Int32" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" />
+    <Property Name="ObjectId" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MenuToTab">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuFkId" Type="Int32" />
+    <Property Name="TabFkId" Type="Int32" />
+    <Property Name="BuildingFkId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Module">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModuleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModuleDisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IconClass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ParentId" Type="Int32" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ModuleToMenu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ModuleFkId" Type="Int32" />
+    <Property Name="MenuFkId" Type="Int32" />
+    <Property Name="BuildingFkId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExpirationTime" Type="Int32" />
+  </EntityType>
+  <EntityType Name="RolePermission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleFkId" Type="Int32" />
+    <Property Name="NavigationFkId" Type="Int32" />
+    <Property Name="TabFkId" Type="Int32" />
+    <Property Name="TypeName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="BuildingFkId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="RoleToUserAction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleFkId" Type="Int32" />
+    <Property Name="CanAdd" Type="Boolean" />
+    <Property Name="CanUpdate" Type="Boolean" />
+    <Property Name="CanDelete" Type="Boolean" />
+    <Property Name="CanView" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Tab">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TabName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TabDisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OrderId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IPAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Designation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsLoggedIn" Type="Boolean" />
+    <Property Name="PreferredLogin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserAction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserLog">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SignInOutTime" Type="DateTime" Precision="3" />
+    <Property Name="SignType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Duration" Type="Double" />
+  </EntityType>
+  <EntityType Name="UserPermission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RolePermissionFkId" Type="Int32" />
+    <Property Name="UserFkId" Type="Int32" />
+    <Property Name="NavigationFkId" Type="Int32" />
+    <Property Name="TabFkId" Type="Int32" />
+    <Property Name="TypeName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="BuildingFkId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserToBuilding">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserFkId" Type="Int32" />
+    <Property Name="BuildingFkId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="UserToClientGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserFkId" Type="Int32" />
+    <Property Name="ClientGroupFkId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ElectricityMeterReading">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="BuildingUnitFkId" />
+      <PropertyRef Name="MeterFkId" />
+      <PropertyRef Name="TenantFkId" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingUnitFkId" Type="Int32" Nullable="false" />
+    <Property Name="MeterFkId" Type="Int32" Nullable="false" />
+    <Property Name="TenantFkId" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="Double" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="ElectricityUnitTenantMapping">
+    <Key>
+      <PropertyRef Name="AccountNo" />
+      <PropertyRef Name="TenantFkId" />
+      <PropertyRef Name="BuildingUnitFkId" />
+      <PropertyRef Name="StartDate" />
+      <PropertyRef Name="EndDate" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="AccountNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenantFkId" Type="Int32" Nullable="false" />
+    <Property Name="BuildingUnitFkId" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="IAQReading">
+    <Key>
+      <PropertyRef Name="DeviceFkId" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Value" />
+      <PropertyRef Name="Unit" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="DeviceFkId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Value" Type="Double" Nullable="false" />
+    <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="missingDataTemp7">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="Value" />
+      <PropertyRef Name="ObjectNo" />
+      <PropertyRef Name="ExpressionColumn" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="Double" Nullable="false" />
+    <Property Name="ObjectNo" Type="Int32" Nullable="false" />
+    <Property Name="ExpressionColumn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ReadingTestV2">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="Value" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="Double" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ReadingV2">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="Value" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="Double" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ReadingV3">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="Value" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="Double" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ReportTablesExpression">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ParameterName" />
+      <PropertyRef Name="TableName" />
+      <PropertyRef Name="Unit" />
+      <PropertyRef Name="OrderId" />
+      <PropertyRef Name="Expr" />
+    </Key>
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="ParameterName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Unit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="Expr" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TempReading_TempV2">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="Value" />
+      <PropertyRef Name="ObjectNo" />
+      <PropertyRef Name="ExpressionColumn" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="Double" Nullable="false" />
+    <Property Name="ObjectNo" Type="Int16" Nullable="false" />
+    <Property Name="ExpressionColumn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TempReadingTestV2">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="Value" />
+      <PropertyRef Name="ObjectNo" />
+      <PropertyRef Name="ExpressionColumn" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="Double" Nullable="false" />
+    <Property Name="ObjectNo" Type="Int16" Nullable="false" />
+    <Property Name="ExpressionColumn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TempReadingV2">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="Value" />
+      <PropertyRef Name="ObjectNo" />
+      <PropertyRef Name="ExpressionColumn" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="Double" Nullable="false" />
+    <Property Name="ObjectNo" Type="Int16" Nullable="false" />
+    <Property Name="ExpressionColumn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="TempReadingV3">
+    <Key>
+      <PropertyRef Name="BuildingFkId" />
+      <PropertyRef Name="ObjectFkId" />
+      <PropertyRef Name="DataFieldFkId" />
+      <PropertyRef Name="Value" />
+      <PropertyRef Name="ObjectNo" />
+      <PropertyRef Name="ExpressionColumn" />
+      <PropertyRef Name="Timestamp" />
+    </Key>
+    <Property Name="BuildingFkId" Type="Int32" Nullable="false" />
+    <Property Name="ObjectFkId" Type="Int32" Nullable="false" />
+    <Property Name="DataFieldFkId" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="Double" Nullable="false" />
+    <Property Name="ObjectNo" Type="Int16" Nullable="false" />
+    <Property Name="ExpressionColumn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="BuildingId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ObjectId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DataFieldId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="sbn_cwDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alerts" EntityType="Self.Alert" />
+    <EntitySet Name="AlertDatas" EntityType="Self.AlertData" />
+    <EntitySet Name="AlertMasters" EntityType="Self.AlertMaster" />
+    <EntitySet Name="AlertProccessingTracks" EntityType="Self.AlertProccessingTrack" />
+    <EntitySet Name="AlertRuleDataPoints" EntityType="Self.AlertRuleDataPoint" />
+    <EntitySet Name="AlertRuleSetups" EntityType="Self.AlertRuleSetup" />
+    <EntitySet Name="AlertRuleTypes" EntityType="Self.AlertRuleType" />
+    <EntitySet Name="AlertSuppresses" EntityType="Self.AlertSuppress" />
+    <EntitySet Name="BacnetObjectDatafieldMappings" EntityType="Self.BacnetObjectDatafieldMapping" />
+    <EntitySet Name="Baselines" EntityType="Self.Baseline" />
+    <EntitySet Name="BaselineCommons" EntityType="Self.BaselineCommon" />
+    <EntitySet Name="BaselineCommonDataPoints" EntityType="Self.BaselineCommonDataPoint" />
+    <EntitySet Name="BaselineLearnedDates" EntityType="Self.BaselineLearnedDate" />
+    <EntitySet Name="BaselineMasters" EntityType="Self.BaselineMaster" />
+    <EntitySet Name="BillFiles" EntityType="Self.BillFile" />
+    <EntitySet Name="BillMappings" EntityType="Self.BillMapping" />
+    <EntitySet Name="BillParameters" EntityType="Self.BillParameter" />
+    <EntitySet Name="BMSReportFileProgresses" EntityType="Self.BMSReportFileProgress" />
+    <EntitySet Name="Buildings" EntityType="Self.Building" />
+    <EntitySet Name="BuildingDataPoints" EntityType="Self.BuildingDataPoint" />
+    <EntitySet Name="BuildingGFAs" EntityType="Self.BuildingGFA" />
+    <EntitySet Name="BuildingHeadersMappings" EntityType="Self.BuildingHeadersMapping" />
+    <EntitySet Name="BuildingObjects" EntityType="Self.BuildingObject" />
+    <EntitySet Name="BuildingObjectDatas" EntityType="Self.BuildingObjectData" />
+    <EntitySet Name="BuildingObjectMappings" EntityType="Self.BuildingObjectMapping" />
+    <EntitySet Name="BuildingStaticInformations" EntityType="Self.BuildingStaticInformation" />
+    <EntitySet Name="BuildingTypes" EntityType="Self.BuildingType" />
+    <EntitySet Name="BuildingUsers" EntityType="Self.BuildingUser" />
+    <EntitySet Name="BuildingValueLimits" EntityType="Self.BuildingValueLimit" />
+    <EntitySet Name="Computations" EntityType="Self.Computation" />
+    <EntitySet Name="ComputedInfoes" EntityType="Self.ComputedInfo" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="CWAlerts" EntityType="Self.CWAlert" />
+    <EntitySet Name="CWAlertRuleSetups" EntityType="Self.CWAlertRuleSetup" />
+    <EntitySet Name="CWBaselineCommons" EntityType="Self.CWBaselineCommon" />
+    <EntitySet Name="CWBuildingDataPoints" EntityType="Self.CWBuildingDataPoint" />
+    <EntitySet Name="CWElectricityBillParameters" EntityType="Self.CWElectricityBillParameter" />
+    <EntitySet Name="CWElectricityBillReadings" EntityType="Self.CWElectricityBillReading" />
+    <EntitySet Name="DataFields" EntityType="Self.DataField" />
+    <EntitySet Name="Designeds" EntityType="Self.Designed" />
+    <EntitySet Name="ElectricityBillParameters" EntityType="Self.ElectricityBillParameter" />
+    <EntitySet Name="ElectricityBillReadings" EntityType="Self.ElectricityBillReading" />
+    <EntitySet Name="ElectricityBillReadingV2" EntityType="Self.ElectricityBillReadingV2" />
+    <EntitySet Name="ElectricityBuildingUnits" EntityType="Self.ElectricityBuildingUnit" />
+    <EntitySet Name="ElectricityMeters" EntityType="Self.ElectricityMeter" />
+    <EntitySet Name="ElectricityTenants" EntityType="Self.ElectricityTenant" />
+    <EntitySet Name="ElectricityTenantCategories" EntityType="Self.ElectricityTenantCategory" />
+    <EntitySet Name="EmailSummaryNotifyGroups" EntityType="Self.EmailSummaryNotifyGroup" />
+    <EntitySet Name="EmailSummaryNotifyUsers" EntityType="Self.EmailSummaryNotifyUser" />
+    <EntitySet Name="EnergyBills" EntityType="Self.EnergyBill" />
+    <EntitySet Name="ExcelToReportDataPoints" EntityType="Self.ExcelToReportDataPoint" />
+    <EntitySet Name="ExportMappings" EntityType="Self.ExportMapping" />
+    <EntitySet Name="Expressions" EntityType="Self.Expression" />
+    <EntitySet Name="FlagAlertTracks" EntityType="Self.FlagAlertTrack" />
+    <EntitySet Name="GasBillParameters" EntityType="Self.GasBillParameter" />
+    <EntitySet Name="GasBillReadings" EntityType="Self.GasBillReading" />
+    <EntitySet Name="GasBillReadingV2" EntityType="Self.GasBillReadingV2" />
+    <EntitySet Name="Groups" EntityType="Self.Group" />
+    <EntitySet Name="HealthyRangeSetups" EntityType="Self.HealthyRangeSetup" />
+    <EntitySet Name="MenuAuthentications" EntityType="Self.MenuAuthentication" />
+    <EntitySet Name="ModuleConfigurations" EntityType="Self.ModuleConfiguration" />
+    <EntitySet Name="NotifyUsers" EntityType="Self.NotifyUser" />
+    <EntitySet Name="NotifyUserGroups" EntityType="Self.NotifyUserGroup" />
+    <EntitySet Name="Objects" EntityType="Self.Object" />
+    <EntitySet Name="ObjectDatas" EntityType="Self.ObjectData" />
+    <EntitySet Name="PinMappings" EntityType="Self.PinMapping" />
+    <EntitySet Name="PinToDashboards" EntityType="Self.PinToDashboard" />
+    <EntitySet Name="Ratings" EntityType="Self.Rating" />
+    <EntitySet Name="Readings" EntityType="Self.Reading" />
+    <EntitySet Name="ReportTables" EntityType="Self.ReportTable" />
+    <EntitySet Name="RoleBuildingMappings" EntityType="Self.RoleBuildingMapping" />
+    <EntitySet Name="SchematicReadings" EntityType="Self.SchematicReading" />
+    <EntitySet Name="Schemes" EntityType="Self.Scheme" />
+    <EntitySet Name="SensorDevices" EntityType="Self.SensorDevice" />
+    <EntitySet Name="SensorSyncTables" EntityType="Self.SensorSyncTable" />
+    <EntitySet Name="TempRawDatas" EntityType="Self.TempRawData" />
+    <EntitySet Name="TempReadings" EntityType="Self.TempReading" />
+    <EntitySet Name="TempReading_Temp" EntityType="Self.TempReading_Temp" />
+    <EntitySet Name="Thresholds" EntityType="Self.Threshold" />
+    <EntitySet Name="UserBuildingBookmarks" EntityType="Self.UserBuildingBookmark" />
+    <EntitySet Name="UserBuildingMappings" EntityType="Self.UserBuildingMapping" />
+    <EntitySet Name="UserGroups" EntityType="Self.UserGroup" />
+    <EntitySet Name="UserSessions" EntityType="Self.UserSession" />
+    <EntitySet Name="WaterBillParameters" EntityType="Self.WaterBillParameter" />
+    <EntitySet Name="WaterBillReadings" EntityType="Self.WaterBillReading" />
+    <EntitySet Name="WaterBillReadingV2" EntityType="Self.WaterBillReadingV2" />
+    <EntitySet Name="BuildingToModules" EntityType="Self.BuildingToModule" />
+    <EntitySet Name="ClientGroups" EntityType="Self.ClientGroup" />
+    <EntitySet Name="ClientGroupToBuildings" EntityType="Self.ClientGroupToBuilding" />
+    <EntitySet Name="Menus" EntityType="Self.Menu" />
+    <EntitySet Name="MenuToTabs" EntityType="Self.MenuToTab" />
+    <EntitySet Name="Modules" EntityType="Self.Module" />
+    <EntitySet Name="ModuleToMenus" EntityType="Self.ModuleToMenu" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="RolePermissions" EntityType="Self.RolePermission" />
+    <EntitySet Name="RoleToUserActions" EntityType="Self.RoleToUserAction" />
+    <EntitySet Name="Tabs" EntityType="Self.Tab" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UserActions" EntityType="Self.UserAction" />
+    <EntitySet Name="UserLogs" EntityType="Self.UserLog" />
+    <EntitySet Name="UserPermissions" EntityType="Self.UserPermission" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+    <EntitySet Name="UserToBuildings" EntityType="Self.UserToBuilding" />
+    <EntitySet Name="UserToClientGroups" EntityType="Self.UserToClientGroup" />
+    <EntitySet Name="ElectricityMeterReadings" EntityType="Self.ElectricityMeterReading" />
+    <EntitySet Name="ElectricityUnitTenantMappings" EntityType="Self.ElectricityUnitTenantMapping" />
+    <EntitySet Name="IAQReadings" EntityType="Self.IAQReading" />
+    <EntitySet Name="missingDataTemp7" EntityType="Self.missingDataTemp7" />
+    <EntitySet Name="ReadingTestV2" EntityType="Self.ReadingTestV2" />
+    <EntitySet Name="ReadingV2" EntityType="Self.ReadingV2" />
+    <EntitySet Name="ReadingV3" EntityType="Self.ReadingV3" />
+    <EntitySet Name="ReportTablesExpressions" EntityType="Self.ReportTablesExpression" />
+    <EntitySet Name="TempReading_TempV2" EntityType="Self.TempReading_TempV2" />
+    <EntitySet Name="TempReadingTestV2" EntityType="Self.TempReadingTestV2" />
+    <EntitySet Name="TempReadingV2" EntityType="Self.TempReadingV2" />
+    <EntitySet Name="TempReadingV3" EntityType="Self.TempReadingV3" />
+    <EntitySet Name="TokenMappings" EntityType="sbn_cwDBModel.TokenMapping" />
+  </EntityContainer>
+  <EntityType Name="TokenMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccessToken" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TokenExpirationTime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+</Schema>
